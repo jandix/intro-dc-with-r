@@ -19,18 +19,21 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@Mig
 3. [Google Maps API](https://developers.google.com/maps/)
 
 
-#### Session 1 - R and RStudio
+#### Session 1 - R and RStudio (J)
 
-#### Session 2 - Data Types and Basic Programming
+#### Session 2 - Data Types and Basic Programming (P)
 
-#### Session 3 - Daten einlesen und speichern
+- Einlesen Grunddatensatz
+- Datentypen erklären
 
-#### Session 4 - Einfache Analyse (numerisch)
+#### Session 3 - Daten einlesen und speichern (P)
 
-#### Session 5 - Visualisierung 
+#### Session 4 - Einfache Analyse (numerisch) (P)
 
-#### Session 6 - Alternative Datenquellen
+#### Session 5 - Visualisierung (P)
 
-#### Session 7 - Strings
+#### Session 6 - APIs (J)
+
+#### Session 7 - Strings (J)
 
 #### Session 8 & 9 - Web Scraping
