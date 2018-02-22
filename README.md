@@ -21,7 +21,7 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@Mig
 
 #### Session 1 - R and RStudio (J)
 
-#### Session 2 - Data Types and Basic Programming (P)
+#### Session 2 - Data Typen und erste Befehle (P)
 
 - Einlesen Grunddatensatz
 - Datentypen erklären
