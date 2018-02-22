@@ -1,3 +1,11 @@
+##########################################################################
+#
+# Introduction to Data Collection with R
+# Session 3: Daten einlesen & speichern
+# Philipp Behrendt (philipp.behrendt@uni.kn) & Jan Dix (jan.dix@uni.kn)
+#
+##########################################################################
+
 # packages laden
 library(readxl)
 
