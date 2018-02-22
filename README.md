@@ -32,8 +32,8 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@Mig
 
 #### Session 5 - Visualisierung (P)
 
-#### Session 6 - APIs (J)
+#### Session 6 - Application Programming Interfaces (APIs) (J)
 
-#### Session 7 - Strings (J)
+#### Session 7 - Introduction to Text Mining (J)
 
 #### Session 8 & 9 - Web Scraping
