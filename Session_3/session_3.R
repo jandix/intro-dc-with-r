@@ -1,8 +1,11 @@
+# packages laden
 library(readxl)
 
+# datensatz laden
 gtdb <- read_excel("D:/NextCloud/uni/courses/intro-dc-with-r/Data/gtdb.xlsx")
 
-plot(gtdb$latitude ~ gtdb$longitude)
+
+View(gtdb)
 
 
 library(ggplot2)
