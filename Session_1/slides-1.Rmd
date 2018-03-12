@@ -189,10 +189,8 @@ knitr::include_graphics("../Assets/img/session1/nyt.png")
 ## Ein kleines Beispiel
 
 ```{r, eval=F}
-# Dies ist ein Kommentar.
-# Diesen muss ich nicht abschreiben.
-# Er dient nur dazu meinen Code,
-# zu erklären.
+# Dies ist ein Kommentar. Diesen muss ich nicht abschreiben.
+# Er dient nur dazu, meinen Code zu erklären.
 text <- "Hello World"
 x <- 1:50
 y <- rnorm(50)
@@ -216,8 +214,11 @@ plot(x = x, y = y)
 
 ## 7. R Projekte
 
-- Kommentare
-- Header
+- data/
+- plots/
+- session1.R
+- session2.R
+    ...
 
 ## 8. Hilfe
 
