@@ -18,3 +18,7 @@ slides > slide:not(.nobackground):before {
 h2 {
   color: #59c7eb !important;
 }
+
+#kn-blue  {
+  color: #59c7eb !important;
+}

@@ -1,7 +1,7 @@
 ---
 title: "Session 1 - R und RStudio"
 subtitle: "An Introduction to Data Collection with R"
-author: "Philipp Behrendt  & Jan Dix"
+author: "Philipp Behrendt & Jan Dix"
 date: "8 May 2017"
 output: 
   ioslides_presentation:
@@ -26,7 +26,7 @@ library(tidytext)
 library(dplyr)
 ```
 
-## Vorstellung{ .columns-2}
+## Vorstellung {.columns-2}
 
 ### Philipp
 

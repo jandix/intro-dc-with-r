@@ -1,0 +1,102 @@
+---
+title: "Session 6 - APIs"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "8 May 2017"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+library(stringr)
+library(readxl)
+library(ggplot2)
+library(ggmap)
+library(tm)
+library(wordcloud)
+library(RColorBrewer)
+library(tidytext)
+library(dplyr)
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+Session 2 - Data Typen und erste Befehle
+
+Session 3 - Daten einlesen und speichern
+
+Session 4 - Einfache Analyse (numerisch)
+
+Session 5 - Visualisierung
+
+`Session 6 - Application Programming Interfaces (APIs)`
+
+Session 7 - Introduction to Text Mining
+
+Session 8 & 9 - Web Scraping
+
+
+## Agenda
+
+1. Was sind in APIs
+2. Benötigte Pakete
+
+# Was sind APIs?
+
+
+# Benötigte Pakete
+
+## ggmap (1)
+
+```{r, message=F, eval=F}
+# Paket laden
+library(ggmap)
+# Koordinaten für Konstanz
+geocode("Konstanz")
+```
+
+```{r, echo=F, message=F}
+coord <- geocode("Konstanz")
+coord
+```
+
+
+```{r, eval=F, message=F}
+# 
+revgeocode(location = as.numeric(coord[1,]),
+           output = "more")
+```
+
+## ggmap (2)
+
+
+
+## rtimes
+
+
+
+
+## rtweet
+
+```{r}
+library(rtweet)
+```
+
+
+
+
+
+
+
+
+
+
