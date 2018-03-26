@@ -1,1 +1,4 @@
 .Rhistory
+
+# exclude twitter project
+twitter_example/

@@ -52,6 +52,17 @@ Session 8 & 9 - Web Scraping
 
 # Was sind APIs?
 
+## Was sind APIs (Webservices)? (1)
+
+- Schnittstellen für einfache Datenabfragen
+- Per URL ansprechbar
+
+## Was sind APIs? (2)
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session6/api-model.png")
+```
+
 
 # Benötigte Pakete
 
@@ -80,9 +91,25 @@ revgeocode(location = as.numeric(coord[1,]),
 
 
 
-## rtimes
+## rtimes (1)
+
+- Key beantragen: [https://developer.nytimes.com/signup](https://developer.nytimes.com/signup)
+- Key speichern unter `.Renviron`
+
+```{bash, eval=F}
+NYTIMES_AS_KEY=***
+```
 
 
+## rtimes (2)
+
+```{r, message=F, eval=F}
+# Paket laden
+library(rtimes)
+#
+as_search("")
+
+```
 
 
 ## rtweet

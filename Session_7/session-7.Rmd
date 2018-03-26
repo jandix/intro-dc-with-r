@@ -1,0 +1,69 @@
+---
+title: "Session 7 - Einführung in Text Mining"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "8 May 2017"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+Session 2 - Data Typen und erste Befehle
+
+Session 3 - Daten einlesen und speichern
+
+Session 4 - Einfache Analyse (numerisch)
+
+Session 5 - Visualisierung
+
+Session 6 - Application Programming Interfaces (APIs)
+
+`Session 7 - Introduction to Text Mining`
+
+Session 8 & 9 - Web Scraping
+
+
+## Agenda
+
+1. Regular Expressions
+2. Text Mining
+
+# Regular Expression (RegEx)
+
+## Regular Expression Syntax
+
+- `$ * + . ? [ ] ^ { } | ( ) \` haben besondere Bedeutungen
+- `\n` newline
+- `\t` tab character
+
+## Wie funktioniert das?
+
+
+
+## Hilfestellung 
+
+- `?regex`
+- regexR
+- [Rstudio Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+- [Stat 545](http://stat545.com/block022_regular-expression.html)
+
+
+
+
+
+
+
