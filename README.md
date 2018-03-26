@@ -10,7 +10,7 @@ Ziel des Kurses ist es den Studierenden das Thema Data Collection näher zu brin
 
 #### Bewerbung
 
-Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@MightyeR_KN](https://twitter.com/MightyeR_KN). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eigenreichten Nachricht. 
+Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@introduction_r](https://twitter.com/introduction_r). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eigenreichten Nachricht. 
 
 #### Daten Quellen
 
@@ -23,9 +23,6 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@Mig
 
 #### Session 2 - Data Typen und erste Befehle (P)
 
-- Einlesen Grunddatensatz
-- Datentypen erklären
-
 #### Session 3 - Daten einlesen und speichern (P)
 
 #### Session 4 - Einfache Analyse (numerisch) (P)
@@ -34,6 +31,6 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@Mig
 
 #### Session 6 - Application Programming Interfaces (APIs) (J)
 
-#### Session 7 - Introduction to Text Mining (J)
+#### Session 7 - Einführung in Text Mining (J)
 
 #### Session 8 & 9 - Web Scraping
