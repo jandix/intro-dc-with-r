@@ -20,18 +20,23 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@int
 4. [Twitter API](https://developer.twitter.com/)
 
 
-#### Session 1 - R and RStudio (J)
+#### Session 1 - R and RStudio (24.04.2018)
 
-#### Session 2 - Data Typen und erste Befehle (P)
+#### Session 2 - Data Typen (08.05.2018)
 
-#### Session 3 - Daten einlesen und speichern (P)
+#### Session 3 - Daten einlesen und speichern (15.05.2018)
 
-#### Session 4 - Einfache Analyse (numerisch) (P)
+#### Session 4 - Einfache Analyse (numerisch) (22.05.2018)
 
-#### Session 5 - Visualisierung (P)
+#### Session 5 - Visualisierung  (29.05.2018)
 
-#### Session 6 - Application Programming Interfaces (APIs) (J)
+#### Session 6 - Application Programming Interfaces (05.06.2018)
 
-#### Session 7 - Einführung in Text Mining (J)
+#### Session 7 - Einführung in Text Mining (12.06.2018)
 
-#### Session 8 & 9 - Web Scraping
+#### Session 8 - Web Scraping  (19.06.2018)
+
+#### Session 9 - Web Scraping  (26.06.2018)
+
+
+
