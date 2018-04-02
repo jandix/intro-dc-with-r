@@ -10,7 +10,7 @@ Ziel des Kurses ist es den Studierenden das Thema Data Collection näher zu brin
 
 #### Bewerbung
 
-Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@introduction_r](https://twitter.com/introduction_r). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eingereichten Nachricht. Ein Twitteraccount wird im Verlauf des Kurses ausdrücklich benötigt. 
+Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@introduction_r](https://twitter.com/introduction_r). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eingereichten Nachricht. Ein Twitteraccount wird im Verlauf des Kurses ausdrücklich benötigt. Die Bewerbungsfrist endet am 20.04.2018. Die Entscheidung wird bis zum 22.04.2018 bekannt gegeben.
 
 #### Daten Quellen
 
