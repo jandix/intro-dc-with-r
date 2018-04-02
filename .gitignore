@@ -2,3 +2,6 @@
 
 # exclude twitter project
 twitter_example/
+
+# exclude syllabus
+Syllabus.*
