@@ -30,12 +30,13 @@ library(dplyr)
 
 ### Philipp
 
-- BA Staatswissenschaften
+- BA Staatswissenschaften, Universität Erfurt
+- MSc SEDA, Universität Konstanz
 
 ### Jan
 
-- BA Politik- und Verwaltungswissenschaften
-
+- BA Politik- und Verwaltungswissenschaften, Universität Konstanz
+- MSc SEDA, Universität Konstanz
 
 
 # Syllabus
@@ -195,7 +196,7 @@ knitr::include_graphics("../Assets/img/session1/dateiEndung2.PNG")
 
 ## Über R
 
-- R ist eine freie Programmiersprache für statistische Berechnungen und Grafiken (Wikipedia)
+- "R ist eine freie Programmiersprache für statistische Berechnungen und Grafiken" (Wikipedia)
 - Besondere Datenstrukturen und Funktionen für Statistik $\rightarrow$ Vorteil und Nachteil zugleich
 - Unglaublich erweiterbar und flexibel durch sogenannte R-Pakete
     $\rightarrow$ "klassische" Datenanalyse, Text Mining, Webseiten, Presentationen erstellen, Grafiken erstellen, Reports schreiben, Daten runterladen
@@ -223,6 +224,7 @@ plot(x = x, y = y)
 
 - Options
 - Global Environment
+- Package Manager
 - Plots
 - Terminal vs Script
 
