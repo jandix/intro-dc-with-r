@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # load required packages
 library(stringr)
-
+library(readxl)
 
 ```
 
@@ -42,7 +42,7 @@ Session 8 & 9 - Web Scraping
 # Agenda
 
 ## Agenda {.smaller}
-1. Basics
+1. Datenformate einlesen
 2. Primitive Datentypen
 
     `Pause (5 min)`
@@ -54,6 +54,7 @@ Session 8 & 9 - Web Scraping
 4. Datensatz einlesen
 5. Hausaufgaben
 
+# 1. Datenformate einlesen
 
 ## Comma Seperated Values (CSV) (1)
 
@@ -92,27 +93,170 @@ knitr::include_graphics("../Assets/img/session3/tsv.PNG")
 - Spalten werden mit Hilfe eines sogenannten Seperators/Delimiter getrennt (Tabulator)
 
 ```{r, eval=F}
-# tsv 
+# tab als Delimiter 
 my_tsv <- read_csv("komma_csv.csv", delim = "\t")
 ```
 
 
-## Excel (xls || xlsx)
+## Excel (xls & xlsx) (1)
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session3/xlsx.PNG")
+```
+
+
+
+
+## Excel (xls & xlsx) (2)
+
+
+```{r, eval=F}
+# Laden des Pakets "readxl"
+library(readxl)
+
+# xlsx 
+my_xlsx <- read_excel("my_xlsx.xlsx")
+```
+
+
 
 ## RData
 
+- Bereits letzte Sitzung kennengelernt 
+- Laden ins Enviroment mit ...
+
+
+```{r, eval=F}
+my_RData <- load("../Data/Session_3/gtdb_coordinates.Rdata")
+
+```
+
+# PAUSE (5 min)
+
+# Daten zusammenführen
+
+## R(ow)-bind (1)
+
+- Verknüpft zwei Dataframes entlang ihrer Zeilen
+
+```{r, eval= T, echo = FALSE}
+
+df1 <- data.frame( Stadt = c("Konstanz", "Stuttgart", "Essen"),
+                   Land = c("Kolumbien", "Schweiz", "Estland"),
+                   Fluss =c("Kongo", "Seine", "Elbe"))
+
+```
+
+
+```{r, eval= T,}
+
+df1 
+
+```
+
+```{r, eval= T, echo = FALSE}
+df2 <- data.frame( Stadt = c("München", "Hamburg"),
+                   Land = c("Mali", "Haiti"),
+                   Fluss =c("Moldau", "Havel"))
+
+```
+
+
+```{r, eval= T,}
+
+df2 
+
+```
+
+
+
+## R(ow)-bind (2)
+
+```{r, eval= T,}
+
+df_rbind <- rbind(df1, df2)
+
+
+df_rbind
+
+```
 
 
 
 
+## C(olum)-bind (1)
+- Verknüpft zwei Dataframes entlang ihrer Spalten
+
+```{r, eval= T, echo = FALSE}
+
+df3 <- data.frame( Name =  c("Kevin", "Sabine", "Eduard", "Mike", "Heidi"),
+                   Tier= c("Kuh", "Schaf", "Esel","Möwe", "Hund"),
+                   Beruf= c("Koch","Schriftstellerin", "Erzieher", "Maurer", "Headhunter"))
+
+```
+
+```{r, eval= T,}
+
+df3 
+
+```
 
 
 
+## C(olum)-bind (2)
+
+```{r, eval= T,}
+
+df_cbind <-  cbind(df_rbind,df3)
+
+df_cbind
+
+```
+
+## Merging (1)
+- Verknüpfung von zwei Datensätzen mittels einer oder mehrerer Variablen
+
+```{r, eval= T, echo = FALSE}
+
+df_purchase <- data.frame( Customer_ID =  c(1:4),
+                   Product= c("Tablet", "Phone", "Laptop", "Clock"),
+                   Price= c(249, 760, 1200,300))
+
+```
+
+```{r, eval= T,}
+
+df_purchase 
+
+```
+
+```{r, eval= T, echo = FALSE}
+
+df_income <- data.frame( Customer_ID =  c(2,3,1,4),
+                   Income= c(3600,750,1200,1800))
+
+```
+
+```{r, eval= T,}
+
+df_income 
+
+```
 
 
+## Merging (2)
+
+```{r, eval= T,}
+# merge two datasets 
+transparent_customer <-  merge (df_purchase,df_income, by = "Customer_ID")
 
 
+transparent_customer
+
+```
 
 
+# PAUSE (5 min)
 
+## Daten Speichern
 

@@ -141,7 +141,7 @@
 </article></slide><slide class=""><hgroup><h2>Agenda</h2></hgroup><article  id="agenda-1" class="smaller">
 
 <ol>
-<li>Basics</li>
+<li>Datenformate einlesen</li>
 <li><p>Primitive Datentypen</p>
 
 <p><code>Pause (5 min)</code></p></li>
@@ -151,6 +151,8 @@
 <li>Datensatz einlesen</li>
 <li><p>Hausaufgaben</p></li>
 </ol>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>1. Datenformate einlesen</h2></hgroup><article  id="datenformate-einlesen">
 
 </article></slide><slide class=""><hgroup><h2>Comma Seperated Values (CSV) (1)</h2></hgroup><article  id="comma-seperated-values-csv-1">
 
@@ -182,12 +184,133 @@ my_semicolon_csv &lt;- read_csv(&quot;my_csv.csv&quot;, delim = &quot;;&quot;)</
 <li>Spalten werden mit Hilfe eines sogenannten Seperators/Delimiter getrennt (Tabulator)</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'># tsv 
+<pre class = 'prettyprint lang-r'># tab als Delimiter 
 my_tsv &lt;- read_csv(&quot;komma_csv.csv&quot;, delim = &quot;\t&quot;)</pre>
 
-</article></slide><slide class=""><hgroup><h2>Excel (xls </h2><h3>| xlsx)</h3></hgroup><article  id="excel-xls-xlsx">
+</article></slide><slide class=""><hgroup><h2>Excel (xls &amp; xlsx) (1)</h2></hgroup><article  id="excel-xls-xlsx-1">
 
-</article></slide><slide class=""><hgroup><h2>RData</h2></hgroup><article  id="rdata"></article></slide>
+<p><img src="../Assets/img/session3/xlsx.PNG" width="100%" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Excel (xls &amp; xlsx) (2)</h2></hgroup><article  id="excel-xls-xlsx-2">
+
+<pre class = 'prettyprint lang-r'># Laden des Pakets &quot;readxl&quot;
+library(readxl)
+
+# xlsx 
+my_xlsx &lt;- read_excel(&quot;my_xlsx.xlsx&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>RData</h2></hgroup><article  id="rdata">
+
+<ul>
+<li>Bereits letzte Sitzung kennengelernt</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>my_RData &lt;- load(&quot;../Data/Session_3/gtdb_coordinates.Rdata&quot;)</pre>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min">
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Daten zusammenführen</h2></hgroup><article  id="daten-zusammenfuhren">
+
+</article></slide><slide class=""><hgroup><h2>R(ow)-bind (1)</h2></hgroup><article  id="row-bind-1">
+
+<ul>
+<li>Verknüpft zwei Dataframes entlang ihrer Zeilen</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>df1 </pre>
+
+<pre >##       Stadt      Land Fluss
+## 1  Konstanz Kolumbien Kongo
+## 2 Stuttgart   Schweiz Seine
+## 3     Essen   Estland  Elbe</pre>
+
+<pre class = 'prettyprint lang-r'>df2 </pre>
+
+<pre >##     Stadt  Land  Fluss
+## 1 München  Mali Moldau
+## 2 Hamburg Haiti  Havel</pre>
+
+</article></slide><slide class=""><hgroup><h2>R(ow)-bind (2)</h2></hgroup><article  id="row-bind-2">
+
+<pre class = 'prettyprint lang-r'>df_rbind &lt;- rbind(df1, df2)
+
+
+df_rbind</pre>
+
+<pre >##       Stadt      Land  Fluss
+## 1  Konstanz Kolumbien  Kongo
+## 2 Stuttgart   Schweiz  Seine
+## 3     Essen   Estland   Elbe
+## 4   München      Mali Moldau
+## 5   Hamburg     Haiti  Havel</pre>
+
+</article></slide><slide class=""><hgroup><h2>C(olum)-bind (1)</h2></hgroup><article  id="colum-bind-1">
+
+<ul>
+<li>Verknüpft zwei Dataframes entlang ihrer Spalten</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>df3 </pre>
+
+<pre >##     Name  Tier            Beruf
+## 1  Kevin   Kuh             Koch
+## 2 Sabine Schaf Schriftstellerin
+## 3 Eduard  Esel         Erzieher
+## 4   Mike  Möwe           Maurer
+## 5  Heidi  Hund       Headhunter</pre>
+
+</article></slide><slide class=""><hgroup><h2>C(olum)-bind (2)</h2></hgroup><article  id="colum-bind-2">
+
+<pre class = 'prettyprint lang-r'>df_cbind &lt;-  cbind(df_rbind,df3)
+
+df_cbind</pre>
+
+<pre >##       Stadt      Land  Fluss   Name  Tier            Beruf
+## 1  Konstanz Kolumbien  Kongo  Kevin   Kuh             Koch
+## 2 Stuttgart   Schweiz  Seine Sabine Schaf Schriftstellerin
+## 3     Essen   Estland   Elbe Eduard  Esel         Erzieher
+## 4   München      Mali Moldau   Mike  Möwe           Maurer
+## 5   Hamburg     Haiti  Havel  Heidi  Hund       Headhunter</pre>
+
+</article></slide><slide class=""><hgroup><h2>Merging (1)</h2></hgroup><article  id="merging-1">
+
+<ul>
+<li>Verknüpfung von zwei Datensätzen mittels einer oder mehrerer Variablen</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>df_purchase </pre>
+
+<pre >##   Customer_ID Product Price
+## 1           1  Tablet   249
+## 2           2   Phone   760
+## 3           3  Laptop  1200
+## 4           4   Clock   300</pre>
+
+<pre class = 'prettyprint lang-r'>df_income </pre>
+
+<pre >##   Customer_ID Income
+## 1           2   3600
+## 2           3    750
+## 3           1   1200
+## 4           4   1800</pre>
+
+</article></slide><slide class=""><hgroup><h2>Merging (2)</h2></hgroup><article  id="merging-2">
+
+<pre class = 'prettyprint lang-r'># merge two datasets 
+transparent_customer &lt;-  merge (df_purchase,df_income, by = &quot;Customer_ID&quot;)
+
+
+transparent_customer</pre>
+
+<pre >##   Customer_ID Product Price Income
+## 1           1  Tablet   249   1200
+## 2           2   Phone   760   3600
+## 3           3  Laptop  1200    750
+## 4           4   Clock   300   1800</pre>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min-1">
+
+</article></slide><slide class=""><hgroup><h2>Daten Speichern</h2></hgroup><article  id="daten-speichern"></article></slide>
 
 
   <slide class="backdrop"></slide>
