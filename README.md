@@ -10,13 +10,14 @@ Ziel des Kurses ist es den Studierenden das Thema Data Collection näher zu brin
 
 #### Bewerbung
 
-Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@introduction_r](https://twitter.com/introduction_r). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eigenreichten Nachricht. 
+Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@introduction_r](https://twitter.com/introduction_r). Die Bewerbung soll sich an der Länge von zwei Tweets (+/- 560 Zeichen) orientieren. Die Auswahl der KandidatenInnen erfolgt auf Basis der eingereichten Nachricht. Ein Twitteraccount wird im Verlauf des Kurses ausdrücklich benötigt. 
 
 #### Daten Quellen
 
 1. [Global Terrorism Database](apps.start.umd.edu/gtd/downloads/dataset/GTD_0617dist.zip)
 2. [NYT API](https://developer.nytimes.com/)
 3. [Google Maps API](https://developers.google.com/maps/)
+4. [Twitter API](https://developer.twitter.com/)
 
 
 #### Session 1 - R and RStudio (J)

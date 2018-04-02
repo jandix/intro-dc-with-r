@@ -1,0 +1,336 @@
+---
+title: "Session 2 - Datentypen"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "08. Mai 2018"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+library(stringr)
+
+
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+`Session 2 - Data Typen und erste Befehle`
+
+Session 3 - Daten einlesen und speichern
+
+Session 4 - Einfache Analyse (numerisch)
+
+Session 5 - Visualisierung
+
+Session 6 - Application Programming Interfaces (APIs)
+
+Session 7 - Introduction to Text Mining
+
+Session 8 & 9 - Web Scraping
+
+
+# Agenda
+
+## Agenda {.smaller}
+1. Basics
+2. Primitive Datentypen
+
+    `Pause (5 min)`
+
+3. Komplexe Datentypen
+
+    `Pause (5 min)`
+    
+4. Datensatz einlesen
+5. Hausaufgaben
+
+## 1. Basics
+
+```{r}
+# Variable zuweisen
+x <- 4.5
+
+# einfache Operationen
+y <- x * 2
+
+# Funktion ausführen
+z <- sqrt(y)
+```
+```{r, echo=F}
+cat("x =", x)
+cat("y =", y)
+cat("z =", z)
+```
+
+
+# 2. Primitive Datentypen
+
+## Numeric (1)
+
+- Darstellung aller natürlichen und reellen Zahlen
+
+```{r}
+x <- 2
+y <- pi
+z <- -4
+```
+```{r}
+class(x)
+```
+
+## Numeric (2)
+
+- alle mathematischen Operationen sind anwendbar
+
+```{r}
+x * z
+```
+```{r}
+z^2
+```
+```{r}
+sqrt(x)
+```
+
+
+## Character(s) (1)
+
+- Darstellung von Text
+- oft auch `string` genannt
+
+```{r}
+my_text <- "Hello World!"
+```
+```{r}
+class(my_text)
+```
+
+## Character(s) (2)
+
+- alle character operationen sind erlaubt
+```{r}
+toupper(my_text)
+```
+```{r}
+gsub("World", "You", my_text)
+```
+
+
+## Logical (1)
+
+- "Wahrheitswert"
+- nur zwei Werte: `TRUE` oder `FALSE`
+- oft auch `boolean` genannt
+
+```{r}
+x <- 10 > 2
+```
+```{r,echo=F}
+x
+```
+
+```{r}
+y <- 2 > 10
+```
+```{r, echo=F}
+y
+```
+```{r}
+class(y) == "logical"
+```
+
+
+## Logical (2)
+
+- Logische/Boolean Operatoren
+
+| A | B | A && B | A \|\| B | !A |
+|:-:|:-:|:------:|:--------:|:--:|
+|FALSE|FALSE|FALSE|FALSE|TRUE|
+|FALSE|TRUE|FALSE|TRUE|TRUE|
+|TRUE|FALSE|FALSE|TRUE|FALSE|
+|TRUE|TRUE|TRUE|TRUE|FALSE|
+
+# PAUSE (5 min)
+
+# 3. Komplexe Datentypen
+
+## Vector (1)
+
+- eine Sammlung von einem Datentyp
+- beliebig lang
+
+```{r}
+x <- c(2, pi, -4, 5) # numeric vector
+y <- c("Hello World!", "Hello You!", "Hello Joe", "Hello Jane") # character vector
+z <- c(TRUE, FALSE, FALSE, TRUE) # logical vector
+```
+
+## Vector (2)
+
+```{r}
+x + 10
+```
+```{r}
+x + x
+```
+```{r}
+gsub("o", "X", y)
+```
+
+## Vector (3)
+```{r, echo=F}
+x
+```
+
+```{r}
+x[1]
+```
+```{r}
+x[2]
+```
+```{r}
+x[2:3]
+```
+
+## List (1)
+
+- eine Sammlung von gemischten Datentypen
+
+```{r}
+sample_list <- list(2, "Hello World!", FALSE, 32, pi)
+```
+```{r}
+sample_list[[1]]
+```
+```{r}
+sample_list[[5]]
+```
+## List (2)
+```{r}
+person <- list(name = "Jane Doe", age = 22, fake = TRUE)
+```
+
+
+```{r}
+person$name
+```
+```{r}
+person$age
+```
+
+## Data Frame (1)
+
+- zweidimensionale Darstellung
+- jede Spalte entspricht einem Vektor $\rightarrow$ Variable
+- jede Zeile entspricht einer Liste $\rightarrow$ Untersuchungsobjekt
+- einfach gesagt: "Excel-Tabelle"
+- wichtigster Datentyp für uns
+
+## Data Frame (2)
+```{r}
+sample_df <- data.frame(x, y, z)
+```
+```{r, echo=F}
+sample_df
+```
+
+
+## Data Frame (3)
+
+```{r}
+# Anzahl der Zeilen
+nrow(sample_df)
+```
+
+```{r}
+# Spaltennamen
+names(sample_df)
+```
+
+## Data Frame (4)
+
+```{r, echo=F}
+sample_df
+```
+```{r}
+# sample_df[row, column]
+sample_df[1, 2]
+```
+
+## Data Frame (5)
+
+```{r, echo=F}
+sample_df
+```
+```{r}
+# kompletten Vektor/Variable ausgeben
+sample_df$z
+```
+
+## Data Frame (6)
+
+```{r, echo=F}
+sample_df
+```
+```{r}
+# ein Element eines Vektors/Variable ausgeben
+sample_df$y[2]
+```
+
+# PAUSE (5 min)
+
+## 4. Datensatz einlesen
+
+- Datensatz runterladen
+- Datensatz im Projektordern unter `./data/` speichern
+- Datensatz öffnen
+
+```{r, eval=F}
+load("../Data/Session_2/gtdb_data_types.Rdata")
+View(gtdb)
+```
+
+```{r, echo=F}
+load("../Data/Session_2/gtdb_data_types.Rdata")
+gtdb[1:4, ]
+```
+
+
+## 5. Hausaufgaben
+
+1. Wieviele Zeilen hat der Datensatz?
+2. Wie heißen die Spalten des Datensatz?
+3. Wie lautet der dritte Eintrag in der Spalte '`n_kill`'?
+4. Welchen Datetypen haben die Spalten im Datensatz?
+5. Wie hoch war die maximale Anzahl der Tötungen? (Tipp: `na.rm = TRUE`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
