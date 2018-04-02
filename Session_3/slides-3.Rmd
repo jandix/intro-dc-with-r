@@ -1,0 +1,118 @@
+---
+title: "Session 3 - Daten einlesen"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "15. Mai 2018"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+library(stringr)
+
+
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+Session 2 - Data Typen und erste Befehle
+
+`Session 3 - Daten einlesen und speichern`
+
+Session 4 - Einfache Analyse (numerisch)
+
+Session 5 - Visualisierung
+
+Session 6 - Application Programming Interfaces (APIs)
+
+Session 7 - Introduction to Text Mining
+
+Session 8 & 9 - Web Scraping
+
+
+# Agenda
+
+## Agenda {.smaller}
+1. Basics
+2. Primitive Datentypen
+
+    `Pause (5 min)`
+
+3. Komplexe Datentypen
+
+    `Pause (5 min)`
+    
+4. Datensatz einlesen
+5. Hausaufgaben
+
+
+## Comma Seperated Values (CSV) (1)
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session3/csv.PNG")
+```
+
+## Comma Seperated Values (CSV) (2)
+
+- jede Zeile in der Datei entspricht einer Zeile im Datensatz
+- Spalten werden mit Hilfe eines sogenannten Seperators/Delimiter getrennt (Komma, Semicolon)
+
+## Comma Seperated Values (CSV) (3)
+
+```{r, eval=F}
+# csv getrennt durch Komma
+my_komma_csv <- read_csv("komma_csv.csv")
+```
+
+```{r, eval=F}
+# csv getrennt durch Semicolon
+my_semicolon_csv <- read_csv("my_csv.csv", delim = ";")
+```
+
+
+
+## Tab Seperated Values (TSV) (1)
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session3/tsv.PNG")
+```
+
+## Tab Seperated Values (TSV) (2)
+
+- jede Zeile in der Datei entspricht einer Zeile im Datensatz
+- Spalten werden mit Hilfe eines sogenannten Seperators/Delimiter getrennt (Tabulator)
+
+```{r, eval=F}
+# tsv 
+my_tsv <- read_csv("komma_csv.csv", delim = "\t")
+```
+
+
+## Excel (xls || xlsx)
+
+## RData
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
