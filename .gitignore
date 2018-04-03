@@ -5,3 +5,7 @@ twitter_example/
 
 # exclude syllabus
 Syllabus.*
+.Rproj.user
+
+# exclude musterloesung
+musterloesung/
