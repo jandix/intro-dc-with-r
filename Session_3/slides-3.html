@@ -141,15 +141,15 @@
 </article></slide><slide class=""><hgroup><h2>Agenda</h2></hgroup><article  id="agenda-1" class="smaller">
 
 <ol>
-<li>Datenformate einlesen</li>
-<li><p>Primitive Datentypen</p>
+<li><p>Datenformate einlesen</p>
 
 <p><code>Pause (5 min)</code></p></li>
-<li><p>Komplexe Datentypen</p>
+<li><p>Daten zusammenführen</p>
 
 <p><code>Pause (5 min)</code></p></li>
 <li>Datensatz einlesen</li>
-<li><p>Hausaufgaben</p></li>
+<li>Pfade</li>
+<li><p>Aufgaben</p></li>
 </ol>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>1. Datenformate einlesen</h2></hgroup><article  id="datenformate-einlesen">
@@ -240,8 +240,6 @@ my_RObject &lt;- readRDS(&quot;myData.rds&quot;) </pre>
 </article></slide><slide class=""><hgroup><h2>R(ow)-bind (2)</h2></hgroup><article  id="row-bind-2">
 
 <pre class = 'prettyprint lang-r'>df_rbind &lt;- rbind(df1, df2)
-
-
 df_rbind</pre>
 
 <pre >##       Stadt      Land  Fluss
@@ -269,7 +267,6 @@ df_rbind</pre>
 </article></slide><slide class=""><hgroup><h2>C(olum)-bind (2)</h2></hgroup><article  id="colum-bind-2">
 
 <pre class = 'prettyprint lang-r'>df_cbind &lt;-  cbind(df_rbind,df3)
-
 df_cbind</pre>
 
 <pre >##       Stadt      Land  Fluss   Name  Tier            Beruf
@@ -318,7 +315,7 @@ transparent_customer</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min-1">
 
-</article></slide><slide class=""><hgroup><h2>Daten Speichern</h2></hgroup><article  id="daten-speichern">
+</article></slide><slide class=""><hgroup><h2>3. Daten Speichern</h2></hgroup><article  id="daten-speichern">
 
 <ul>
 <li>Best Practise: CSV als Export</li>
@@ -338,7 +335,7 @@ transparent_customer</pre>
 saveRDS(my_test_Object,
      file = &quot;my_test_object.rds&quot;)</pre>
 
-</article></slide><slide class=""><hgroup><h2>Pfade (1)</h2></hgroup><article  id="pfade-1">
+</article></slide><slide class=""><hgroup><h2>4. Pfade (1)</h2></hgroup><article  id="pfade-1">
 
 <h3>Absoluter Pfad</h3>
 
@@ -374,7 +371,7 @@ C:\Users\JohnDoe\Dokumente\Rkurs\Data\Session_3</pre>
 <li>erlaubt und vereinfacht Replizierbarkeit des Codes auf anderen Systemen/Ordnern</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Aufgaben</h2></hgroup><article  id="aufgaben">
+</article></slide><slide class=""><hgroup><h2>5. Aufgaben</h2></hgroup><article  id="aufgaben">
 
 <ol>
 <li>Inspizieren Sie die unterschiedlichen Dateien des Ordners <code>./Data/Session_3</code>.</li>
