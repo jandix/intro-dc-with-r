@@ -43,16 +43,16 @@ Session 8 & 9 - Web Scraping
 
 ## Agenda {.smaller}
 1. Datenformate einlesen
-2. Primitive Datentypen
 
     `Pause (5 min)`
 
-3. Komplexe Datentypen
+2. Daten zusammenführen
 
     `Pause (5 min)`
     
-4. Datensatz einlesen
-5. Hausaufgaben
+3. Datensatz einlesen
+4. Pfade
+5. Aufgaben
 
 # 1. Datenformate einlesen
 
@@ -182,8 +182,6 @@ df2
 ```{r, eval= T,}
 
 df_rbind <- rbind(df1, df2)
-
-
 df_rbind
 
 ```
@@ -215,7 +213,6 @@ df3
 ```{r, eval= T,}
 
 df_cbind <-  cbind(df_rbind,df3)
-
 df_cbind
 
 ```
@@ -266,7 +263,7 @@ transparent_customer
 
 # PAUSE (5 min)
 
-## Daten Speichern
+## 3. Daten Speichern
 
 - Best Practise: CSV als Export 
 
@@ -289,18 +286,18 @@ saveRDS(my_test_Object,
 ```
 
 
-## Pfade (1)
+## 4. Pfade (1)
 
 ### Absoluter Pfad
 - die Pfadangabe erfolgt ausgehend vom Stammverzeichnis (Root)
-```{bash, eval = F}
+```{r, eval = F}
 C:/Users/JohnDoe/Dokumente/Rkurs/Data/Session_3
 ```
 
 
 ### Relativer Pfad
 - die Pfadangabe erfolgt ausgehend vom aktuellen Verzeichnis 
-```{bash, eval = F}
+```{r, eval = F}
 ./Data/Session_3
 ```
 
@@ -323,11 +320,7 @@ C:\Users\JohnDoe\Dokumente\Rkurs\Data\Session_3
 
 
 
-
-
-
-
-## Aufgaben
+## 5. Aufgaben
 1. Inspizieren Sie die unterschiedlichen Dateien des Ordners `./Data/Session_3`.
 2. Laden Sie alle Dateien in R und speichern Sie sie in unterschiedlichen, aussagekräftigen Variablen.
 3. Schauen Sie sich die Variablen mit Hilfe des Befehls `View()` an.

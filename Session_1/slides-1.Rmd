@@ -163,6 +163,7 @@ knitr::include_graphics("../Assets/img/session1/nyt.png")
     
 7. R Projekte
 8. Hilfe
+9. Aufgaben
 
 ## 1. Installation von R 3.4.4 (Someone to Lean On)
 
@@ -244,4 +245,7 @@ plot(x = x, y = y)
 - ?function
 - (Twitter)
 
+## 9. Aufgaben 
+
+1. Erstellen Sie ein R-Projekt im vorgestellten Format
 
