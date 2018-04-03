@@ -129,9 +129,14 @@ my_xlsx <- read_excel("my_xlsx.xlsx")
 
 
 ```{r, eval=F}
+# Laden einer kompletten R Session
 my_RData <- load("myData.RData")
 
+# Laden einer einzelnen Variable/Objekt
+my_RObject <- readRDS("myData.rds") 
 ```
+
+
 
 # PAUSE (5 min)
 
