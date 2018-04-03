@@ -328,12 +328,61 @@ transparent_customer</pre>
           file = &quot;my_test_data.csv&quot;, 
           delim = &quot;$&quot;)</pre>
 
+<ul>
+<li>alternativ als RData oder rds</li>
+</ul>
+
 <pre class = 'prettyprint lang-r'>save(my_test_data,
-     file = &quot;my_test_data.RData&quot;)</pre>
+     file = &quot;my_test_data.RData&quot;)
 
-</article></slide><slide class=""><hgroup><h2>Pfade</h2></hgroup><article  id="pfade">
+saveRDS(my_test_Object,
+     file = &quot;my_test_object.rds&quot;)</pre>
 
-</article></slide><slide class=""><hgroup><h2>Aufgaben</h2></hgroup><article  id="aufgaben"></article></slide>
+</article></slide><slide class=""><hgroup><h2>Pfade (1)</h2></hgroup><article  id="pfade-1">
+
+<h3>Absoluter Pfad</h3>
+
+<ul>
+<li>die Pfadangabe erfolgt ausgehend vom Stammverzeichnis (Root)</li>
+</ul>
+
+<pre class = 'prettyprint lang-bash'>C:/Users/JohnDoe/Dokumente/Rkurs/Data/Session_3</pre>
+
+<h3>Relativer Pfad</h3>
+
+<ul>
+<li>die Pfadangabe erfolgt ausgehend vom aktuellen Verzeichnis</li>
+</ul>
+
+<pre class = 'prettyprint lang-bash'>./Data/Session_3</pre>
+
+</article></slide><slide class=""><hgroup><h2>Pfade (2)</h2></hgroup><article  id="pfade-2">
+
+<ul>
+<li><strong>Windows-NutzerInnen</strong>: Pfade müssen angepasst werden \(\rightarrow\) Backslash durch Forwardslash ersetzen</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>C:/Users/JohnDoe/Dokumente/Rkurs/Data/Session_3
+
+statt 
+
+C:\Users\JohnDoe\Dokumente\Rkurs\Data\Session_3</pre>
+
+<ul>
+<li>innerhalb unseres R-Projekts geben wir stets relative Pfade an</li>
+<li>Pfade werden immer relativ zum Ordner des Projektes angegeben</li>
+<li>erlaubt und vereinfacht Replizierbarkeit des Codes auf anderen Systemen/Ordnern</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Aufgaben</h2></hgroup><article  id="aufgaben">
+
+<ol>
+<li>Inspizieren Sie die unterschiedlichen Dateien des Ordners <code>./Data/Session_3</code>.</li>
+<li>Laden Sie alle Dateien in R und speichern Sie sie in unterschiedlichen, aussagekräftigen Variablen.</li>
+<li>Schauen Sie sich die Variablen mit Hilfe des Befehls <code>View()</code> an.</li>
+<li>Fügen Sie die vier Teildatensätze sinnvoll zusammen. Überlegen Sie sorgfältig, welche der kennengelernten Funktionen Sie dabei benötigen.</li>
+<li>Speichern Sie den finalen Datensatz im rds-Format in Ihrem Projektordner.</li>
+</ol></article></slide>
 
 
   <slide class="backdrop"></slide>

@@ -278,13 +278,59 @@ write_csv(my_test_data,
 
 ```
 
+- alternativ als RData oder rds
 
 ```{r, eval = FALSE}
 save(my_test_data,
      file = "my_test_data.RData")
+
+saveRDS(my_test_Object,
+     file = "my_test_object.rds")
 ```
 
 
-## Pfade
+## Pfade (1)
+
+### Absoluter Pfad
+- die Pfadangabe erfolgt ausgehend vom Stammverzeichnis (Root)
+```{bash, eval = F}
+C:/Users/JohnDoe/Dokumente/Rkurs/Data/Session_3
+```
+
+
+### Relativer Pfad
+- die Pfadangabe erfolgt ausgehend vom aktuellen Verzeichnis 
+```{bash, eval = F}
+./Data/Session_3
+```
+
+## Pfade (2) 
+
+- **Windows-NutzerInnen**: Pfade müssen angepasst werden
+$\rightarrow$ Backslash durch Forwardslash ersetzen
+```{r, eval = F}
+C:/Users/JohnDoe/Dokumente/Rkurs/Data/Session_3
+
+statt 
+
+C:\Users\JohnDoe\Dokumente\Rkurs\Data\Session_3
+```
+
+
+- innerhalb unseres R-Projekts geben wir stets relative Pfade an
+- Pfade werden immer relativ zum Ordner des Projektes angegeben
+- erlaubt und vereinfacht Replizierbarkeit des Codes auf anderen Systemen/Ordnern
+
+
+
+
+
+
 
 ## Aufgaben
+1. Inspizieren Sie die unterschiedlichen Dateien des Ordners `./Data/Session_3`.
+2. Laden Sie alle Dateien in R und speichern Sie sie in unterschiedlichen, aussagekräftigen Variablen.
+3. Schauen Sie sich die Variablen mit Hilfe des Befehls `View()` an.
+4. Fügen Sie die vier Teildatensätze sinnvoll zusammen. Überlegen Sie sorgfältig, welche der kennengelernten  Funktionen Sie dabei benötigen. 
+5. Speichern Sie den finalen Datensatz im rds-Format in Ihrem Projektordner. 
+
