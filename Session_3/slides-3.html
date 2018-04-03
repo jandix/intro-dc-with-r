@@ -171,7 +171,8 @@
 my_komma_csv &lt;- read_csv(&quot;komma_csv.csv&quot;)</pre>
 
 <pre class = 'prettyprint lang-r'># csv getrennt durch Semicolon
-my_semicolon_csv &lt;- read_csv(&quot;my_csv.csv&quot;, delim = &quot;;&quot;)</pre>
+my_semicolon_csv &lt;- read_csv(&quot;my_csv.csv&quot;, 
+                             delim = &quot;;&quot;)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Tab Seperated Values (TSV) (1)</h2></hgroup><article  id="tab-seperated-values-tsv-1">
 
@@ -185,7 +186,8 @@ my_semicolon_csv &lt;- read_csv(&quot;my_csv.csv&quot;, delim = &quot;;&quot;)</
 </ul>
 
 <pre class = 'prettyprint lang-r'># tab als Delimiter 
-my_tsv &lt;- read_csv(&quot;komma_csv.csv&quot;, delim = &quot;\t&quot;)</pre>
+my_tsv &lt;- read_csv(&quot;komma_csv.csv&quot;, 
+                   delim = &quot;\t&quot;)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Excel (xls &amp; xlsx) (1)</h2></hgroup><article  id="excel-xls-xlsx-1">
 
@@ -203,9 +205,10 @@ my_xlsx &lt;- read_excel(&quot;my_xlsx.xlsx&quot;)</pre>
 
 <ul>
 <li>Bereits letzte Sitzung kennengelernt</li>
+<li>Laden ins Enviroment mit &#8230;</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>my_RData &lt;- load(&quot;../Data/Session_3/gtdb_coordinates.Rdata&quot;)</pre>
+<pre class = 'prettyprint lang-r'>my_RData &lt;- load(&quot;myData.Rdata&quot;)</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min">
 
@@ -282,9 +285,9 @@ df_cbind</pre>
 
 <pre >##   Customer_ID Product Price
 ## 1           1  Tablet   249
-## 2           2   Phone   760
-## 3           3  Laptop  1200
-## 4           4   Clock   300</pre>
+## 2           1   Phone   760
+## 3           2  Laptop  1200
+## 4           3   Clock   300</pre>
 
 <pre class = 'prettyprint lang-r'>df_income </pre>
 
@@ -297,20 +300,36 @@ df_cbind</pre>
 </article></slide><slide class=""><hgroup><h2>Merging (2)</h2></hgroup><article  id="merging-2">
 
 <pre class = 'prettyprint lang-r'># merge two datasets 
-transparent_customer &lt;-  merge (df_purchase,df_income, by = &quot;Customer_ID&quot;)
+transparent_customer &lt;- merge(df_purchase, df_income, 
+                              by = &quot;Customer_ID&quot;)
 
 
 transparent_customer</pre>
 
 <pre >##   Customer_ID Product Price Income
 ## 1           1  Tablet   249   1200
-## 2           2   Phone   760   3600
-## 3           3  Laptop  1200    750
-## 4           4   Clock   300   1800</pre>
+## 2           1   Phone   760   1200
+## 3           2  Laptop  1200   3600
+## 4           3   Clock   300    750</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min-1">
 
-</article></slide><slide class=""><hgroup><h2>Daten Speichern</h2></hgroup><article  id="daten-speichern"></article></slide>
+</article></slide><slide class=""><hgroup><h2>Daten Speichern</h2></hgroup><article  id="daten-speichern">
+
+<ul>
+<li>Best Practise: CSV als Export</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>write_csv(my_test_data, 
+          file = &quot;my_test_data.csv&quot;, 
+          delim = &quot;$&quot;)</pre>
+
+<pre class = 'prettyprint lang-r'>save(my_test_data,
+     file = &quot;my_test_data.Rdata&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Pfade</h2></hgroup><article  id="pfade">
+
+</article></slide><slide class=""><hgroup><h2>Aufgaben</h2></hgroup><article  id="aufgaben"></article></slide>
 
 
   <slide class="backdrop"></slide>

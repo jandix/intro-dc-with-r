@@ -76,7 +76,8 @@ my_komma_csv <- read_csv("komma_csv.csv")
 
 ```{r, eval=F}
 # csv getrennt durch Semicolon
-my_semicolon_csv <- read_csv("my_csv.csv", delim = ";")
+my_semicolon_csv <- read_csv("my_csv.csv", 
+                             delim = ";")
 ```
 
 
@@ -94,7 +95,8 @@ knitr::include_graphics("../Assets/img/session3/tsv.PNG")
 
 ```{r, eval=F}
 # tab als Delimiter 
-my_tsv <- read_csv("komma_csv.csv", delim = "\t")
+my_tsv <- read_csv("komma_csv.csv", 
+                   delim = "\t")
 ```
 
 
@@ -127,7 +129,7 @@ my_xlsx <- read_excel("my_xlsx.xlsx")
 
 
 ```{r, eval=F}
-my_RData <- load("../Data/Session_3/gtdb_coordinates.Rdata")
+my_RData <- load("myData.RData")
 
 ```
 
@@ -218,7 +220,7 @@ df_cbind
 
 ```{r, eval= T, echo = FALSE}
 
-df_purchase <- data.frame( Customer_ID =  c(1:4),
+df_purchase <- data.frame( Customer_ID =  c(1,1,2,3),
                    Product= c("Tablet", "Phone", "Laptop", "Clock"),
                    Price= c(249, 760, 1200,300))
 
@@ -248,7 +250,8 @@ df_income
 
 ```{r, eval= T,}
 # merge two datasets 
-transparent_customer <-  merge (df_purchase,df_income, by = "Customer_ID")
+transparent_customer <- merge(df_purchase, df_income, 
+                              by = "Customer_ID")
 
 
 transparent_customer
@@ -260,3 +263,23 @@ transparent_customer
 
 ## Daten Speichern
 
+- Best Practise: CSV als Export 
+
+```{r, eval = FALSE}
+
+write_csv(my_test_data, 
+          file = "my_test_data.csv", 
+          delim = "$")
+
+```
+
+
+```{r, eval = FALSE}
+save(my_test_data,
+     file = "my_test_data.RData")
+```
+
+
+## Pfade
+
+## Aufgaben
