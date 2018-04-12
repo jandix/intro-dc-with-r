@@ -1,0 +1,71 @@
+---
+title: "Data Collection with R"
+subtitle: "Für Einsteiger"
+author: "Philipp Behrendt & Jan Dix"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ./Assets/img/logo-uni.png
+    widescreen: true
+    css: ./Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+library(stringr)
+library(readxl)
+library(ggplot2)
+library(ggmap)
+library(tm)
+library(wordcloud)
+library(RColorBrewer)
+library(tidytext)
+library(dplyr)
+```
+
+```{r}
+gtdb <- readRDS("./musterloesung/data/gtdb.rds")
+```
+
+## Road Map
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("./Assets/img/presentation/roadmap.png")
+```
+
+## Syllabus (1)
+
+Session 1 - R and RStudio (24.04.2018)
+
+Session 2 - Data Typen (08.05.2018)
+
+Session 3 - Daten einlesen und speichern (15.05.2018)
+
+Session 4 - Einfache Analyse (numerisch) (22.05.2018)
+
+Session 5 - Visualisierung  (29.05.2018)
+
+Session 6 - Application Programming Interfaces (05.06.2018)
+
+## Syllabus (2)
+
+Session 7 - Einführung in Text Mining (12.06.2018)
+
+Session 8 - Web Scraping  (19.06.2018)
+
+Session 9 - Web Scraping  (26.06.2018)
+
+## Organisatorisches
+
+### Anmeldung
+
+- Twitter DM an [\@introduction_r](https://twitter.com/introduction_r) (+/- 560 Zeichen)
+- Bewerbungsfrist: 20.04.2018
+- Rückmeldung: 22.04.2018
+
+
+### Wann & Wo?
+- Dienstag, 17:00
+- Raum C424
