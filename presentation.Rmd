@@ -25,9 +25,7 @@ library(tidytext)
 library(dplyr)
 ```
 
-```{r}
-gtdb <- readRDS("./musterloesung/data/gtdb.rds")
-```
+
 
 ## Road Map
 
@@ -67,5 +65,6 @@ Session 9 - Web Scraping  (26.06.2018)
 
 
 ### Wann & Wo?
+- Erste Sitzung am 24.04 
 - Dienstag, 17:00
 - Raum C424
