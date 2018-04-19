@@ -21,7 +21,7 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@int
 
 ### Termine
 
-#### Dienstag 17 Uhr, C 424 
+#### - Dienstag 17 Uhr, C 424 
 
 #### Session 1 - R and RStudio (24.04.2018)
 
