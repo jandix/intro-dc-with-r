@@ -19,6 +19,7 @@ Die Bewerbung erfolgt über eine private Nachricht an den Twitter Account [\@int
 3. [Google Maps API](https://developers.google.com/maps/)
 4. [Twitter API](https://developer.twitter.com/)
 
+#### Dienstag 17 Uhr , C 424 
 
 #### Session 1 - R and RStudio (24.04.2018)
 
