@@ -131,7 +131,7 @@ df <- data.frame(text = text, stringsAsFactors = F) %>%
   anti_join(stop_words, by = "word") %>% 
   count(word, sort = TRUE) 
 
-colors = brewer.pal(8, "Dark2")
+colors <- brewer.pal(8, "Dark2")
 wordcloud(df$word[1:50], df$n[1:50],
           scale=c(8,.2),
           max.words=50, 
