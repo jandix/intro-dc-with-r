@@ -217,25 +217,20 @@ knitr::include_graphics("../Assets/img/session1/CLI_1.PNG")
 
 ## 5. Klonen des Repositories (2)
 
-- Navigation zum Zielordner (Bsp. C:/Users/Behrendt/Desktop/Uni/SoSe18) mittels cd ("change directory")
+```{r, eval=F}
+# Verzeichnis wechseln Windows
+cd C:\\Users\JaneDoe\Uni\R-Workshop
+# Verzeichnis wechseln Mac
+cd /home/JaneDoe/Uni/R-Workshop
 
-```{r, out.width = "100%",out.height="75%",echo=FALSE}
-knitr::include_graphics("../Assets/img/session1/CLI_2.PNG")
-```
+# Repository klonen
+git clone https://github.com/jandix/intro-dc-with-r
 
+# in das Repository Verzeichnis wechseln
+cd intro-dc-with-r
 
-## 5. Klonen des Repositories (3)
-- Klonen des Repositories in den Zielordner mit "git clone"
-
-```{r, out.width = "100%",out.height="75%",echo=FALSE}
-knitr::include_graphics("../Assets/img/session1/CLI_3.PNG")
-```
-
-## 5. Klonen des Repositories (4)
-- Aktualisieren des Repositories "git pull"
-
-```{r, out.width = "100%",out.height="75%",echo=FALSE}
-knitr::include_graphics("../Assets/img/session1/CLI_4.PNG")
+# Repository aktualisieren (pull)
+git pull
 ```
 
 
