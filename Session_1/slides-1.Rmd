@@ -153,19 +153,21 @@ knitr::include_graphics("../Assets/img/session1/nyt.png")
 1. Installation von R
 2. Installation von RStudio
 3. Einrichtung Betriebssystem
-
-    `Pause (5 min)`
-
-4. Was ist R?
-5. Was ist RStudio?
+4. Installation von Git 
 
     `Pause (5 min)`
     
-7. R Projekte
-8. Hilfe
-9. Aufgaben
+5. Klonen des Repositories 
+6. Was ist R?
+7. Was ist RStudio?
 
-## 1. Installation von R 3.4.4 (Someone to Lean On)
+    `Pause (5 min)`
+    
+8. R Projekte
+9. Hilfe
+10. Aufgaben
+
+## 1. Installation von R 3.5.0 
 
 - Windows: [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
 - Mac: [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/)
@@ -173,6 +175,7 @@ knitr::include_graphics("../Assets/img/session1/nyt.png")
 ## 2. Installation von RStudio
 
 - Alle Plattformen: [https://www.rstudio.com/products/rstudio/](https://www.rstudio.com/products/rstudio/)
+
 
 ## 3. Einrichtung Betriebssystem
 
@@ -193,7 +196,50 @@ knitr::include_graphics("../Assets/img/session1/dateiEndung2.PNG")
 ```
 
 
-# 4. Was ist R?
+## 4. Installation von Git
+
+- Git ist ein Versionsverwaltungssystem 
+- Gemeinsames Bearbeiten und Teilen von Skripten 
+
+- Download: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+
+## 5. Klonen des Repositories
+
+- Öffnen der Commandline: 
+* Windows: Windowstaste + cmd + Enter 
+* Apple:  Terminal  ausführen
+
+```{r, out.width = "100%", out.height="75%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session1/CLI_1.PNG")
+```
+
+
+## 5. Klonen des Repositories (2)
+
+- Navigation zum Zielordner (Bsp. C:/Users/Behrendt/Desktop/Uni/SoSe18) mittels cd ("change directory")
+
+```{r, out.width = "100%",out.height="75%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session1/CLI_2.PNG")
+```
+
+
+## 5. Klonen des Repositories (3)
+- Klonen des Repositories in den Zielordner mit "git clone"
+
+```{r, out.width = "100%",out.height="75%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session1/CLI_3.PNG")
+```
+
+## 5. Klonen des Repositories (4)
+- Aktualisieren des Repositories "git pull"
+
+```{r, out.width = "100%",out.height="75%",echo=FALSE}
+knitr::include_graphics("../Assets/img/session1/CLI_4.PNG")
+```
+
+
+## 6. Was ist R?
 
 ## Über R
 
@@ -213,7 +259,7 @@ y <- rnorm(50)
 plot(x = x, y = y)
 ```
 
-# 5. Was ist RStudio?
+# 7. Was ist RStudio?
 
 ## Über RStudio
 
@@ -229,7 +275,7 @@ plot(x = x, y = y)
 - Plots
 - Terminal vs Script
 
-## 7. R Projekte
+## 8. R Projekte
 
 - data/
 - plots/
@@ -237,7 +283,7 @@ plot(x = x, y = y)
 - session2.R
     ...
 
-## 8. Hilfe
+## 9. Hilfe
 
 - Stack Overflow
 - Google
@@ -245,7 +291,7 @@ plot(x = x, y = y)
 - ?function
 - (Twitter)
 
-## 9. Aufgaben 
+## 10. Aufgaben 
 
 1. Erstellen Sie ein R-Projekt im vorgestellten Format
 
