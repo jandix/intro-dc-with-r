@@ -26,7 +26,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: '..\Assets\img\logo-uni.png',
+                        favIcon: '../Assets/img/logo-uni.png',
               },
 
       // Author information
@@ -86,7 +86,7 @@
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(..\Assets\img\logo-uni.png) no-repeat 0 50%;
+      background: url(../Assets/img/logo-uni.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -118,7 +118,9 @@
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Syllabus</h2></hgroup><article  id="syllabus">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Hausaufgaben besprechen</h2></hgroup><article  id="hausaufgaben-besprechen">
+
+</article></slide><slide class=""><hgroup><h2>Syllabus</h2></hgroup><article  id="syllabus">
 
 <p>Session 1 - R and RStudio</p>
 
@@ -142,14 +144,16 @@
 
 <ol>
 <li>Basics</li>
-<li><p>Primitive Datentypen</p>
+<li>Primitive Datentypen</li>
+<li><p>Aufgaben</p>
 
 <p><code>Pause (5 min)</code></p></li>
-<li><p>Komplexe Datentypen</p>
+<li>Komplexe Datentypen</li>
+<li><p>Aufgaben</p>
 
 <p><code>Pause (5 min)</code></p></li>
 <li>Datensatz einlesen</li>
-<li><p>Hausaufgaben</p></li>
+<li><p>Aufgaben</p></li>
 </ol>
 
 </article></slide><slide class=""><hgroup><h2>1. Basics</h2></hgroup><article  id="basics">
@@ -222,13 +226,24 @@ z &lt;- -4</pre>
 <li>alle character operationen sind erlaubt</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'>toupper(my_text)</pre>
+<pre class = 'prettyprint lang-r'>tolower(my_text)</pre>
 
-<pre >## [1] &quot;HELLO WORLD!&quot;</pre>
+<pre >## [1] &quot;hello world!&quot;</pre>
 
 <pre class = 'prettyprint lang-r'>gsub(&quot;World&quot;, &quot;You&quot;, my_text)</pre>
 
 <pre >## [1] &quot;Hello You!&quot;</pre>
+
+</article></slide><slide class=""><hgroup><h2>3. Aufgaben</h2></hgroup><article  id="aufgaben">
+
+<ol>
+<li>Erstelle die Variable <code>radius</code> mit dem Wert 5.</li>
+<li>Berechne den Umfang und speicher den Wert in <code>umfang</code>.</li>
+<li>Erstelle die Variable <code>fname</code> mit deinem Vornamen.</li>
+<li>Erstelle die Variable <code>lname</code> mit deinem Nachnamen.</li>
+<li>Transformiere <code>lname</code> zu Großbuchstaben und speicher den Wert in <code>lname_upper</code>.</li>
+<li>Füge <code>fname</code> und <code>lname</code> in der Variable <code>name</code> zusammen. <strong>(Tipp: ?paste)</strong></li>
+</ol>
 
 </article></slide><slide class=""><hgroup><h2>Logical (1)</h2></hgroup><article  id="logical-1">
 
@@ -294,9 +309,21 @@ z &lt;- -4</pre>
 </tr>
 </table>
 
+</article></slide><slide class=""><hgroup><h2>4. Aufgaben</h2></hgroup><article  id="aufgaben-1">
+
+<p>Nehme an, dass <code>a &lt;- TRUE</code>, <code>b &lt;- FALSE</code> und <code>c &lt;- TRUE</code>. Bestimmen den Wahrheitswert der folgenden Aussagen:</p>
+
+<ol>
+<li><code>a &amp;&amp; b</code></li>
+<li><code>c &amp;&amp; !b</code></li>
+<li><code>a || b || c</code></li>
+<li><code>(a &amp;&amp; b) || !c</code></li>
+<li><code>(a &amp;&amp; b) &amp;&amp; || !c &amp;&amp; !!b || a</code></li>
+</ol>
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>3. Komplexe Datentypen</h2></hgroup><article  id="komplexe-datentypen">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>5. Komplexe Datentypen</h2></hgroup><article  id="komplexe-datentypen">
 
 </article></slide><slide class=""><hgroup><h2>Vector (1)</h2></hgroup><article  id="vector-1">
 
@@ -338,6 +365,27 @@ z &lt;- c(TRUE, FALSE, FALSE, TRUE) # logical vector</pre>
 <pre class = 'prettyprint lang-r'>x[2:3]</pre>
 
 <pre >## [1]  3.141593 -4.000000</pre>
+
+</article></slide><slide class=""><hgroup><h2>6. Aufgaben (1)</h2></hgroup><article  id="aufgaben-1-1">
+
+<p>Erstelle die folgenden Vektoren:</p>
+
+<p><code>numbers_1 &lt;- 1:6</code></p>
+
+<p><code>numbers_2 &lt;- seq(1, 2, 0.2)</code></p>
+
+<p><code>numbers_3 &lt;- c(&quot;1&quot;, &quot;222&quot;, &quot;079&quot;, &quot;362&quot;, &quot;902&quot;, &quot;007&quot;)</code></p>
+
+</article></slide><slide class=""><hgroup><h2>6. Aufgaben (2)</h2></hgroup><article  id="aufgaben-2">
+
+<ol>
+<li>Addiere <code>numbers_1</code> und <code>numbers_2</code>. Speicher das Ergebnis in <code>addition</code>.</li>
+<li>Kombiniere die ersten fünf Elemente von <code>addition</code> und die letzten drei Elemente von <code>numbers_2</code> zu einem neuen Vektor <code>long_n</code>.</li>
+<li>Addiere <code>numbers_1</code> und <code>long_n</code>. Was fällt dir auf?</li>
+<li>Ersetzte alle <code>0</code> mit <code>9</code> in <code>numbers_3</code>. Speicher das Ergebnis in <code>numbers_large</code>.</li>
+<li>Kombiniere Vektor <code>numbers_large</code> und <code>numbers_2</code> zu einem neuen Vektor <code>long_c</code>. Was fällt dir auf?</li>
+<li>Addiere Vektor <code>numbers_large</code> und <code>addition</code>. <strong>(Tipp: as.numeric())</strong></li>
+</ol>
 
 </article></slide><slide class=""><hgroup><h2>List (1)</h2></hgroup><article  id="list-1">
 
@@ -440,12 +488,14 @@ sample_df$y[2]</pre>
 <pre >## [1] Hello You!
 ## Levels: Hello Jane Hello Joe Hello World! Hello You!</pre>
 
+</article></slide><slide class=""><hgroup><h2>5. Aufgaben</h2></hgroup><article  id="aufgaben-3">
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>PAUSE (5 min)</h2></hgroup><article  id="pause-5-min-1">
 
-</article></slide><slide class=""><hgroup><h2>4. Datensatz einlesen</h2></hgroup><article  id="datensatz-einlesen">
+</article></slide><slide class=""><hgroup><h2>6. Ersten Datensatz einlesen</h2></hgroup><article  id="ersten-datensatz-einlesen">
 
 <ul>
-<li>Datensatz runterladen</li>
+<li>Datensatz runterladen/kopieren</li>
 <li>Datensatz im Projektordern unter <code>./data/</code> speichern</li>
 <li>Datensatz öffnen</li>
 </ul>
@@ -459,7 +509,7 @@ View(gtdb)</pre>
 ## 3 1998-01-01     Armed Assault      1   FALSE
 ## 4 1998-01-02 Bombing/Explosion      0   FALSE</pre>
 
-</article></slide><slide class=""><hgroup><h2>5. Hausaufgaben</h2></hgroup><article  id="hausaufgaben">
+</article></slide><slide class=""><hgroup><h2>7. Aufgaben</h2></hgroup><article  id="aufgaben-4">
 
 <ol>
 <li>Wieviele Zeilen hat der Datensatz?</li>

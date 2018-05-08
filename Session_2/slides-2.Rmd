@@ -20,6 +20,8 @@ library(stringr)
 
 ```
 
+# Hausaufgaben besprechen
+
 ## Syllabus
 
 Session 1 - R and RStudio
@@ -44,15 +46,17 @@ Session 8 & 9 - Web Scraping
 ## Agenda {.smaller}
 1. Basics
 2. Primitive Datentypen
+3. Aufgaben
 
     `Pause (5 min)`
 
-3. Komplexe Datentypen
+4. Komplexe Datentypen
+5. Aufgaben
 
     `Pause (5 min)`
     
-4. Datensatz einlesen
-5. Aufgaben
+6. Datensatz einlesen
+7. Aufgaben
 
 ## 1. Basics
 
@@ -119,12 +123,20 @@ class(my_text)
 
 - alle character operationen sind erlaubt
 ```{r}
-toupper(my_text)
+tolower(my_text)
 ```
 ```{r}
 gsub("World", "You", my_text)
 ```
 
+## 3. Aufgaben
+
+1. Erstelle die Variable `radius` mit dem Wert 5.
+2. Berechne den Umfang und speicher den Wert in `umfang`.
+3. Erstelle die Variable `fname` mit deinem Vornamen.
+4. Erstelle die Variable `lname` mit deinem Nachnamen.
+5. Transformiere `lname` zu Großbuchstaben und speicher den Wert in `lname_upper`.
+6. Füge `fname` und `lname` in der Variable `name` zusammen. **(Tipp: ?paste)**
 
 ## Logical (1)
 
@@ -161,9 +173,19 @@ class(y) == "logical"
 |TRUE|FALSE|FALSE|TRUE|FALSE|
 |TRUE|TRUE|TRUE|TRUE|FALSE|
 
+## 4. Aufgaben
+
+Nehme an, dass `a <- TRUE`, `b <- FALSE` und `c <- TRUE`. Bestimmen den Wahrheitswert der folgenden Aussagen: 
+
+1. `a && b` 
+2. `c && !b` 
+3. `a || b || c` 
+4. `(a && b) || !c`
+5. `(a && b) && || !c && !!b || a`
+
 # PAUSE (5 min)
 
-# 3. Komplexe Datentypen
+# 5. Komplexe Datentypen
 
 ## Vector (1)
 
@@ -202,6 +224,27 @@ x[2]
 ```{r}
 x[2:3]
 ```
+
+## 6. Aufgaben (1)
+
+Erstelle die folgenden Vektoren:
+
+`numbers_1 <- 1:6`
+
+`numbers_2 <- seq(1, 2, 0.2)`
+
+`numbers_3 <- c("1", "222", "079", "362", "902", "007")`
+
+
+## 6. Aufgaben (2)
+
+1. Addiere `numbers_1` und `numbers_2`. Speicher das Ergebnis in `addition`.
+2. Kombiniere die ersten fünf Elemente von `addition` und die letzten drei Elemente von `numbers_2` zu einem neuen Vektor `long_n`.
+3. Addiere `numbers_1` und `long_n`. Was fällt dir auf?
+4. Ersetzte alle `0` mit `9` in `numbers_3`. Speicher das Ergebnis in `numbers_large`.
+5. Kombiniere Vektor `numbers_large` und `numbers_2` zu einem neuen Vektor `long_c`. Was fällt dir auf?
+6. Addiere Vektor `numbers_large` und `addition`. **(Tipp: as.numeric())** 
+
 
 ## List (1)
 
@@ -288,11 +331,13 @@ sample_df
 sample_df$y[2]
 ```
 
+## 5. Aufgaben
+
 # PAUSE (5 min)
 
-## 4. Datensatz einlesen
+## 6. Ersten Datensatz einlesen
 
-- Datensatz runterladen
+- Datensatz runterladen/kopieren
 - Datensatz im Projektordern unter `./data/` speichern
 - Datensatz öffnen
 
@@ -307,30 +352,10 @@ gtdb[1:4, ]
 ```
 
 
-## 5. Aufgaben
+## 7. Aufgaben
 
 1. Wieviele Zeilen hat der Datensatz?
 2. Wie heißen die Spalten des Datensatz?
 3. Wie lautet der dritte Eintrag in der Spalte '`n_kill`'?
 4. Welchen Datetypen haben die Spalten im Datensatz?
 5. Wie hoch war die maximale Anzahl der Tötungen? (Tipp: `na.rm = TRUE`)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
