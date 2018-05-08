@@ -46,17 +46,16 @@ Session 8 & 9 - Web Scraping
 ## Agenda {.smaller}
 1. Basics
 2. Primitive Datentypen
-3. Aufgaben
+
 
     `Pause (5 min)`
 
-4. Komplexe Datentypen
-5. Aufgaben
+3. Komplexe Datentypen
 
     `Pause (5 min)`
     
-6. Datensatz einlesen
-7. Aufgaben
+4. Datensatz einlesen
+5. Aufgaben
 
 ## 1. Basics
 
@@ -181,7 +180,7 @@ Nehme an, dass `a <- TRUE`, `b <- FALSE` und `c <- TRUE`. Bestimmen den Wahrheit
 2. `c && !b` 
 3. `a || b || c` 
 4. `(a && b) || !c`
-5. `(a && b) && || !c && !!b || a`
+5. `(a && b) || !c && !!b || a`
 
 # PAUSE (5 min)
 
@@ -331,11 +330,9 @@ sample_df
 sample_df$y[2]
 ```
 
-## 5. Aufgaben
-
 # PAUSE (5 min)
 
-## 6. Ersten Datensatz einlesen
+## 7. Ersten Datensatz einlesen
 
 - Datensatz runterladen/kopieren
 - Datensatz im Projektordern unter `./data/` speichern
@@ -352,7 +349,7 @@ gtdb[1:4, ]
 ```
 
 
-## 7. Aufgaben
+## 8. Aufgaben
 
 1. Wieviele Zeilen hat der Datensatz?
 2. Wie heißen die Spalten des Datensatz?
