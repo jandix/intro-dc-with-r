@@ -56,7 +56,7 @@ Session 8 & 9 - Web Scraping
 Lade den Datensatz `gtdb_data_types.Rdata`.
 
 1. Speicher `attack_type` in **Uppercase** in der Variable `attack_upper`.
-2. Kombiniere `date` und `n_kill` zu einem neuen Vektor `nonsense`. 
+2. Kombiniere `date` und `n_kill` zu einem neuen Vektor `nonsense`. Wie lang ist der Vektor?
 3. Wieviele Tote gab es durchschnittlich?
 
 
