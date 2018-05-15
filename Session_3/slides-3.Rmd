@@ -41,7 +41,7 @@ Session 8 & 9 - Web Scraping
 
 # Agenda
 
-## Agenda {.smaller}
+## Agenda
 1. Recap
 2. Datenformate einlesen
 3. Daten zusammenführen
