@@ -42,19 +42,25 @@ Session 8 & 9 - Web Scraping
 # Agenda
 
 ## Agenda {.smaller}
-1. Datenformate einlesen
+1. Recap
+2. Datenformate einlesen
+3. Daten zusammenführen
+4. Datensatz speichern
+5. Pfade
+6. Aufgaben
 
-    `Pause (5 min)`
+# Hausaufgaben besprechen
 
-2. Daten zusammenführen
+## 1. Recap
 
-    `Pause (5 min)`
-    
-3. Datensatz einlesen
-4. Pfade
-5. Aufgaben
+Lade den Datensatz `gtdb_data_types.Rdata`.
 
-# 1. Datenformate einlesen
+1. Speicher `attack_type` in **Uppercase** in der Variable `attack_upper`.
+2. Kombiniere `date` und `n_kill` zu einem neuen Vektor `nonsense`. 
+3. Wieviele Tote gab es durchschnittlich?
+
+
+# 2. Datenformate einlesen
 
 ## Comma Seperated Values (CSV) (1)
 
@@ -137,10 +143,7 @@ my_RObject <- readRDS("myData.rds")
 ```
 
 
-
-# PAUSE (5 min)
-
-# Daten zusammenführen
+# 3. Daten zusammenführen
 
 ## R(ow)-bind (1)
 
@@ -261,9 +264,7 @@ transparent_customer
 ```
 
 
-# PAUSE (5 min)
-
-## 3. Daten Speichern
+## 4. Daten Speichern
 
 - Best Practise: CSV als Export 
 
@@ -321,9 +322,10 @@ C:\Users\JohnDoe\Dokumente\Rkurs\Data\Session_3
 
 
 ## 5. Aufgaben
-1. Inspizieren Sie die unterschiedlichen Dateien des Ordners `./Data/Session_3`.
-2. Laden Sie alle Dateien in R und speichern Sie sie in unterschiedlichen, aussagekräftigen Variablen.
-3. Schauen Sie sich die Variablen mit Hilfe des Befehls `View()` an.
-4. Fügen Sie die vier Teildatensätze sinnvoll zusammen. Überlegen Sie sorgfältig, welche der kennengelernten  Funktionen Sie dabei benötigen. 
-5. Speichern Sie den finalen Datensatz im rds-Format in Ihrem Projektordner. 
+
+1. Inspiziere die unterschiedlichen Dateien des Ordners `./Data/Session_3`.
+2. Lade alle Dateien in R und speicher sie in unterschiedlichen, aussagekräftigen Variablen.
+3. Schaue dir die Variablen mit Hilfe des Befehls `View()` an.
+4. Füge die vier Teildatensätze sinnvoll zusammen. Überlege sorgfältig, welche der kennengelernten  Funktionen du dabei benötigst und welche nicht. 
+5. Speicher den finalen Datensatz im rds-Format in deinem Projektordner unter `/data/gtdb.RDS`.  
 
