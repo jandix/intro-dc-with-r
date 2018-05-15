@@ -63,8 +63,19 @@ as.numeric(numbers_large) + addition
 load("data/Session_2/gtdb_data_types.Rdata")
 
 # Wieviele Zeilen hat der Datensatz?
-# Wie heißen die Spalten des Datensatz?
-# Wie lautet der dritte Eintrag in der Spalte 'n_kill'?
-# Welchen Datetypen haben die Spalten im Datensatz?
-# Wie hoch war die maximale Anzahl der Tötungen? (Tipp: na.rm = TRUE)
+nrow(gtdb)
 
+# Wie heißen die Spalten des Datensatz?
+names(gtdb)
+
+# Wie lautet der dritte Eintrag in der Spalte 'n_kill'?
+gtdb$n_kill[3]
+
+# Welchen Datetypen haben die Spalten im Datensatz?
+class(gtdb$date)
+class(gtdb$attack_type)
+class(gtdb$n_kill)
+class(gtdb$suicide)
+
+# Wie hoch war die maximale Anzahl der Tötungen? (Tipp: na.rm = TRUE)
+max(gtdb$n_kill, na.rm = TRUE)
