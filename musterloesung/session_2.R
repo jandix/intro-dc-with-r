@@ -77,5 +77,6 @@ class(gtdb$attack_type)
 class(gtdb$n_kill)
 class(gtdb$suicide)
 
+
 # Wie hoch war die maximale Anzahl der Tötungen? (Tipp: na.rm = TRUE)
 max(gtdb$n_kill, na.rm = TRUE)
