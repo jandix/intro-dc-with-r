@@ -1,0 +1,277 @@
+---
+title: "Session 5 - Visulaisierung & Recap"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "22. Mai 2018"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+# load required packages
+library(stringr)
+library(readxl)
+library(readr)
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+Session 2 - Data Typen und erste Befehle
+
+Session 3 - Daten einlesen und speichern
+
+Session 4 - Einfache Analyse (numerisch)
+
+`Session 5 - Visualisierung`
+
+Session 6 - Application Programming Interfaces (APIs)
+
+Session 7 - Introduction to Text Mining
+
+Session 8 & 9 - Web Scraping
+
+## Agenda
+1. Hausaufgaben besprechen
+2. Kontrollstrukturen 
+3. For-Loop
+4. Aufgaben
+5. Visualisierung 
+6. Hausaufgaben
+
+
+# 1. Hausaufgaben besprechen
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# load required data set for homework
+gtdb <- readRDS("../Data/Project/gtdb.rds")
+```
+
+
+## Aufgaben (1)
+
+- Was ist der Median von `nkill`?
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+median(gtdb$nkill, na.rm = TRUE)
+```
+
+- Wieviele Selbstmordanschläge gab es?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(gtdb$suicide == 1)
+```
+
+## Aufgaben (2)
+
+- Wieviele verschiedene Kategorien hat die Variable `attacktype1_txt`?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+table(gtdb$attacktype1_txt)
+```
+
+## Aufgaben (3)
+- Wieviele Selbstmordanschläge gab es im Jahr 2003?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(gtdb$iyear == 2003 & gtdb$suicide == 1)
+```
+
+
+- Wie oft wurde das russische Militär angegriffen? 
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(gtdb$natlty1 == 167 & gtdb$targtype1 == 4, na.rm = TRUE)
+sum(gtdb$natlty1_txt == "Russia" & gtdb$targtype1_txt == "Military", na.rm = TRUE)
+```
+
+
+
+## Aufgaben (4)
+
+- Wie oft war ein Selbstmordanschlag mit einer Bombe erfolgreich?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(gtdb$suicide == 1 & gtdb$attacktype1  == 3 & gtdb$success == 1, na.rm = TRUE)
+```
+
+
+
+- Bestimme alle Kennzahlen von `nkill` und interpretiere diese.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+summary(gtdb$nkill)
+```
+
+## Aufgaben (5)
+
+- Wie hoch ist der `mean` bei Selbstmordanschläge? Wie hoch bei allen anderen Fällen?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+mean(gtdb$nkill[gtdb$suicide == 1], na.rm = TRUE)
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+mean(gtdb$nkill[gtdb$suicide != 1], na.rm = TRUE)
+```
+
+## Aufgaben (6)
+
+- Wieviel Anschläge gab es im Jahr 2009 bei dem das Ziel eine `Educational Institution` oder das angegriffene Ziel aus `East Timor` war?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+nrow(gtdb[ gtdb$iyear == 2009 & ( gtdb$targtype1_txt == "Educational Institution" | gtdb$natlty1_txt == "East Timor"), ])
+```
+
+
+
+- Wie oft könnte die Opferzahl nicht ermittelt werden?
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(is.na(gtdb$nkill))
+```
+
+# 2. Kontrollstrukturen
+
+
+## 2. If - Else (1)
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+age <- 18
+if (age >= 18) {
+  print("Champagner") 
+} else {
+  print("Limo")
+}
+```
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+age <- 14
+if (age >= 18) {
+  print("Champagner") 
+} else {
+  print("Limo")
+}
+```
+
+## 2. If - Else (2)
+
+- arbeitet auf einem einzelnen Element 
+- Grundsätzliche Syntax: 
+
+```{r, eval=FALSE, echo=TRUE}
+if (logische Aussage) {
+statement1
+} else {
+statement2
+}
+```
+
+## 2. Ifelse (3)
+- Vektorisierte Variante 
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+ages <- c(11, 19, 25, 14, 30, 99, 12)
+ifelse(ages >= 18, "Champagner", "Limo")
+
+```
+
+- Grundsätzliche Syntax: 
+
+```{r, eval=FALSE, echo=TRUE}
+ifelse(logische Aussage, statement1, statement2)
+```
+
+# 3. Schleifen 
+
+## 3. For-Loop (1)
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+for (index in 1:10) {
+  print(index)
+}
+```
+
+## 3. For-Loop (2)
+
+- Wiederholte Ausführung eines Befehls
+- Grundsätzliche Syntax: 
+
+```{r, eval=FALSE, echo=TRUE}
+for (index in vector){
+  statements
+}
+```
+
+## 3. For-Loop mit If- Statement (3)
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+suicide_counter <- 0 
+
+for (index in 1:nrow(gtdb)) {
+  if (gtdb$suicide[index] == 1) {
+    suicide_counter <-  suicide_counter + 1 
+  } else {
+    suicide_counter <- suicide_counter + 0 
+  }
+}
+
+suicide_counter
+```
+
+## 4. Aufgaben  
+
+1. Schreibe eine For-Loop, in der die Quadratzahlen von 1 bis 10 ausgegeben werden
+2. Erstelle einen Vektor *half_of_year*, der eine 0 angibt, wenn der Anschlag im ersten Halbjahr des Jahres stattgefunden hat, und eine 1 für die zweite Jahreshälfte.
+3. Bestimme mit Hilfe einer For-Loop die Anzahl aller getöteten Personen für den gesamten Datensatz. Welche andere Funktion erledigt das mit einer Zeile Code? 
+
+# 5. Visualisierung
+
+
+## 5. Visualisierung (1)
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+plot(latitude ~ longitude,
+     xlab = "Longitude",
+     ylab = "Latitude",
+     main = "Attack ",
+     las = 0.2,
+     pch = 20,
+     data = gtdb)
+```
+## 5. Visualisierung (2)
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+attacks <- table(gtdb$attacktype1_txt)
+par_mar <- par()$mar
+par(mar=c(12,4,3,0))
+barplot(attacks, 
+        main="Attacks by Type", 
+        las=2)
+par(mar=par_mar)
+```
+
+## 5. Visualisierung (2)
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+boxplot(nkill~ targtype1_txt, 
+        na.action = "na.omit", 
+        data = gtdb,
+        las=2)
+```
+
+
+
+
+## 6. Hausaufgaben 
+
+1. In dem Datensatz hat sich bei *atacktype1_txt* bei manchen Variablen ein Fehler eingeschlichen. Ändere die numerischen Werte in ihre String-Repräsentation. Erstelle nun einen neuen Barplot. 
