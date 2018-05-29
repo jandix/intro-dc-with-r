@@ -239,8 +239,25 @@ suicide_counter
 # 5. Visualisierung
 
 
-## 5. Visualisierung (1)
-```{r, echo=TRUE, warning=FALSE, message=FALSE}
+## Scatterplot (1)
+```{r, echo=F, warning=FALSE, message=FALSE}
+plot(latitude ~ longitude,
+     xlab = "Longitude",
+     ylab = "Latitude",
+     main = "Attack ",
+     col = rgb(80, 80, 80, 10, maxColorValue = 255),
+     las = 0.2,
+     pch = 20,
+     data = gtdb)
+points(latitude ~ longitude,
+       pch = 4,
+       col = "red",
+       data = gtdb[gtdb$suicide == 1, ])
+```
+
+## Scatterplot (2)
+
+```{r, echo=T, eval=F, warning=FALSE, message=FALSE}
 plot(latitude ~ longitude,
      xlab = "Longitude",
      ylab = "Latitude",
@@ -249,50 +266,80 @@ plot(latitude ~ longitude,
      pch = 20,
      data = gtdb)
 ```
-## 5. Visualisierung (2)
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+
+##  Histogramm (1)
+
+```{r, echo=F, warning=FALSE, message=FALSE}
+hist(gtdb$nkill, 
+     breaks = 10000,
+     xlim = c(0,50),
+     main = "Histogramm nkill",
+     xlab = "number of killed people")
+```
+
+
+##  Histogramm (2)
+
+```{r, echo=T, eval=F, warning=FALSE, message=FALSE}
+hist(gtdb$nkill, 
+     breaks = 10000,
+     xlim = c(0,50),
+     main = "Histogramm nkill",
+     xlab = "number of killed people")
+```
+
+
+
+##  Barplots (1)
+
+```{r, echo=F, warning=FALSE, message=FALSE}
 attacks <- table(gtdb$attacktype1_txt)
-par_mar <- par()$mar
-par(mar=c(12,4,3,0))
 barplot(attacks, 
         main="Attacks by Type", 
         las=2)
-par(mar=par_mar)
 ```
 
-## 5. Visualisierung (2)
+##  Barplots (2) 
+
+```{r, echo=T, eval=F, warning=FALSE, message=FALSE}
+attacks <- table(gtdb$attacktype1_txt)
+barplot(attacks, 
+        main="Attacks by Type", 
+        las=2)
+```
+
+## Boxplots (1)
 
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE, eval=FALSE}
+```{r, echo=F, warning=FALSE, message=FALSE, eval=T}
 boxplot(nkill ~ targtype1_txt, 
         na.action = "na.omit", 
         data = gtdb,
-        las = 2)
+        las = 2,
+        ylim =c(0, 50)
+        )
 ```
 
-##
+##  Boxplots (2)
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+```{r, echo=T, warning=FALSE, message=FALSE, eval=F}
 boxplot(nkill ~ targtype1_txt, 
         na.action = "na.omit", 
         data = gtdb,
-        las = 2)
+        las = 2,
+        ylim = c(0, 50))
 ```
 
-
-## 5. Visualisierung (3)
-
-
-```{r, echo=TRUE, warning=FALSE, message=FALSE}
-boxplot(nkill ~ targtype1_txt, 
-        na.action = "na.omit",
-        xlim = c(0, mean(gtdb$nkill, na.rm = TRUE)),
-        data = gtdb,
-        las = 2)
-```
 
 
 ## 6. Hausaufgaben 
 
-1. In dem Datensatz hat sich bei *attacktype1_txt* bei manchen Variablen ein Fehler eingeschlichen. Ändere die numerischen Werte in ihre String-Repräsentation. Erstelle nun einen neuen Barplot. 
+1. In dem Datensatz hat sich bei *attacktype1_txt* bei manchen Variablen ein Fehler eingeschlichen. Ändere die numerischen Werte in ihre String-Repräsentation. Erstelle nun einen neuen Barplot, bei dem auch die Variablenname passen. Änder dazu entweder die **Schriftgröße** oder passe die Variablennamen an. _Für Fortgeschrittene:_ Schau dir `par()` an, um die Plottingcanvas anzupassen. 
+
+### Tipp: 
+
+Für zusätzliche Features in eurem Plot (Finetuning) findet ihr eine Anzahl an Funktionen hier: [https://de.wikibooks.org/wiki/GNU_R:_plot](https://de.wikibooks.org/wiki/GNU_R:_plot)
+
