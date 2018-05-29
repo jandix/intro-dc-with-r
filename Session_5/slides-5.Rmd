@@ -1,5 +1,5 @@
 ---
-title: "Session 5 - Visulaisierung & Recap"
+title: "Session 5 - Visualisierung & Recap"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
 date: "22. Mai 2018"
@@ -102,10 +102,10 @@ sum(gtdb$natlty1_txt == "Russia" & gtdb$targtype1_txt == "Military", na.rm = TRU
 - Wie oft war ein Selbstmordanschlag mit einer Bombe erfolgreich?
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
-sum(gtdb$suicide == 1 & gtdb$attacktype1  == 3 & gtdb$success == 1, na.rm = TRUE)
+sum(gtdb$suicide == 1 & 
+      gtdb$attacktype1  == 3 & 
+      gtdb$success == 1, na.rm = TRUE)
 ```
-
-
 
 - Bestimme alle Kennzahlen von `nkill` und interpretiere diese.
 
@@ -130,7 +130,9 @@ mean(gtdb$nkill[gtdb$suicide != 1], na.rm = TRUE)
 - Wieviel Anschläge gab es im Jahr 2009 bei dem das Ziel eine `Educational Institution` oder das angegriffene Ziel aus `East Timor` war?
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
-nrow(gtdb[ gtdb$iyear == 2009 & ( gtdb$targtype1_txt == "Educational Institution" | gtdb$natlty1_txt == "East Timor"), ])
+nrow(gtdb[gtdb$iyear == 2009 &
+            (gtdb$targtype1_txt == "Educational Institution" |
+               gtdb$natlty1_txt == "East Timor"), ])
 ```
 
 
@@ -170,9 +172,9 @@ if (age >= 18) {
 
 ```{r, eval=FALSE, echo=TRUE}
 if (logische Aussage) {
-statement1
+  statement1
 } else {
-statement2
+  statement2
 }
 ```
 
@@ -262,16 +264,35 @@ par(mar=par_mar)
 ## 5. Visualisierung (2)
 
 
-```{r, echo=TRUE, warning=FALSE, message=FALSE}
-boxplot(nkill~ targtype1_txt, 
+```{r, echo=TRUE, warning=FALSE, message=FALSE, eval=FALSE}
+boxplot(nkill ~ targtype1_txt, 
         na.action = "na.omit", 
         data = gtdb,
-        las=2)
+        las = 2)
+```
+
+##
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+boxplot(nkill ~ targtype1_txt, 
+        na.action = "na.omit", 
+        data = gtdb,
+        las = 2)
 ```
 
 
+## 5. Visualisierung (3)
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+boxplot(nkill ~ targtype1_txt, 
+        na.action = "na.omit",
+        xlim = c(0, mean(gtdb$nkill, na.rm = TRUE)),
+        data = gtdb,
+        las = 2)
+```
 
 
 ## 6. Hausaufgaben 
 
-1. In dem Datensatz hat sich bei *atacktype1_txt* bei manchen Variablen ein Fehler eingeschlichen. Ändere die numerischen Werte in ihre String-Repräsentation. Erstelle nun einen neuen Barplot. 
+1. In dem Datensatz hat sich bei *attacktype1_txt* bei manchen Variablen ein Fehler eingeschlichen. Ändere die numerischen Werte in ihre String-Repräsentation. Erstelle nun einen neuen Barplot. 
