@@ -2,7 +2,7 @@
 title: "Session 6 - APIs"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
-date: "8 May 2017"
+date: "05. Juni 2018"
 output: 
   ioslides_presentation:
     slide_level: 2
@@ -15,15 +15,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 # load required packages
-library(stringr)
-library(readxl)
-library(ggplot2)
+library(tidyverse)
+library(httr)
 library(ggmap)
-library(tm)
-library(wordcloud)
-library(RColorBrewer)
-library(tidytext)
-library(dplyr)
+library(rtimes)
+library(rtweet)
 ```
 
 ## Syllabus
@@ -47,24 +43,63 @@ Session 8 & 9 - Web Scraping
 
 ## Agenda
 
-1. Was sind in APIs
-2. Benötigte Pakete
+1. Datenformate
+1. Was sind in APIs?
+2. Google Maps API
+3. New York Times API
+4. Twitter API
+
+# Datenformate
+
+## JSON
+
+## XML
+
 
 # Was sind APIs?
 
-## Was sind APIs (Webservices)? (1)
+## Was sind APIs? (1)
 
-- Schnittstellen für einfache Datenabfragen
-- Per URL ansprechbar
+```{r, out.width = "65%",echo=FALSE, fig.align="center"}
+knitr::include_graphics("../Assets/img/session6/api.png", dpi = 300)
+```
 
 ## Was sind APIs? (2)
 
 ```{r, out.width = "100%",echo=FALSE}
-knitr::include_graphics("../Assets/img/session6/api-model.png")
+knitr::include_graphics("../Assets/img/session6/url.png")
 ```
 
+**BASE URL** (Stammurl): Wer bietet den Service an?
 
-# Benötigte Pakete
+**ENDPOINT** (Endpunkt): Welchen Service möchtest du nutzten?
+
+**PARAMETER** (Query): Auf welche Daten möchtest du zugreifen? Wie sollen die Daten gefiltert werden? 
+
+## Was sind APIs? (3)
+
+```{r}
+library(httr)
+url <- parse_url("http://maps.googleapis.com/maps/api/geocode/json")
+url$query <- list(
+  address = "Konstanz",
+  sensor = "false"
+)
+url <- build_url(url)
+```
+```{r, echo=FALSE}
+url
+```
+
+## Aufgaben
+
+Unter [https://developers.google.com/maps/documentation/geocoding/intro](https://developers.google.com/maps/documentation/geocoding/intro) findest du die Dokumentation der Google Maps Geocoding API. Du kannst die Aufgaben entweder mit Hilfe des Browsers oder mit R lösen. **Tipp:** Im `httr` package gibt es die Funktion `GET()`. 
+
+1. Welche Koordinaten hat die Unversität Konstanz?
+2. Zu welchem `administrative_area_level_2` gehört die Universität Harvard? 
+3. Die API kann sowohl die Daten im `JSON` und `XML` Format ausgeben. Wie kann man das Format ändern?
+
+# APIs in R
 
 ## ggmap (1)
 
@@ -89,8 +124,6 @@ revgeocode(location = as.numeric(coord[1,]),
 
 ## ggmap (2)
 
-
-
 ## rtimes (1)
 
 - Key beantragen: [https://developer.nytimes.com/signup](https://developer.nytimes.com/signup)
@@ -99,7 +132,6 @@ revgeocode(location = as.numeric(coord[1,]),
 ```{bash, eval=F}
 NYTIMES_AS_KEY=***
 ```
-
 
 ## rtimes (2)
 
@@ -111,19 +143,8 @@ as_search("")
 
 ```
 
-
 ## rtweet
 
 ```{r}
 library(rtweet)
 ```
-
-
-
-
-
-
-
-
-
-
