@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # load required packages
 library(tidyverse)
+library(jsonlite)
+library(xml2)
 library(httr)
 library(ggmap)
 library(rtimes)
@@ -44,17 +46,113 @@ Session 8 & 9 - Web Scraping
 ## Agenda
 
 1. Datenformate
-1. Was sind in APIs?
-2. Google Maps API
-3. New York Times API
-4. Twitter API
+2. Aufgaben
+3. Was sind in APIs?
+4. Aufgaben
+5. Google Maps API
+6. Aufgaben
+7. New York Times API
+8. Twitter API
+9. Hausaufgaben
+
 
 # Datenformate
 
-## JSON
+## JSON (1)
 
-## XML
+```{json}
+[
+  {
+    "name": "Batman",
+    "age": 99
+  },
+  {
+    "name": "Robin",
+    "age": 101
+  }
+]
+```
 
+## JSON (2)
+
+```{r, echo=FALSE}
+json <- '[
+  {
+    "name": "Batman",
+    "age": 99
+  },
+  {
+    "name": "Robin",
+    "age": 101
+  }
+]'
+parsed_json <- fromJSON(json)
+xml <- '<persons>
+  <person>
+    <name>Batman</name>
+    <age>99</age>
+  </person>
+  <person>
+    <name>Robin</name>
+    <age>101</age>
+  </person>
+</persons>'
+parsed_xml <- read_xml(xml)
+parsed_persons <- xml_find_all(parsed_xml, "//persons")
+parsed_text <- xml_text(parsed_persons)
+```
+
+```{r, eval=FALSE}
+# parsing (lesen) json
+library(jsonlite)
+json <- readLines("batman.json")
+parsed_json <- fromJSON(json)
+```
+```{r, echo=FALSE}
+parsed_json
+```
+
+## XML (1)
+
+```{xml}
+<persons>
+  <person>
+    <name>Batman</name>
+    <age>99</age>
+  </person>
+  <person>
+    <name>Robin</name>
+    <age>101</age>
+  </person>
+</persons>
+```
+
+## XML (2)
+
+```{r, eval=FALSE}
+# parsing (lesen) xml
+library(xml2)
+xml <- readLines("batman.xml")
+parsed_xml <- read_xml(xml)
+parsed_persons <- xml_find_all(parsed_xml, "//persons")
+parsed_text <- xml_text(parsed_persons)
+```
+```{r, echo=FALSE}
+parsed_text
+```
+
+## Aufgaben
+
+```{r, echo=FALSE}
+cars <- cars[1:5, ]
+```
+
+1. Erstelle eine JSON Datei von dem untenstehenden Datensatz.
+2. Lese und parse die Datei [https://raw.githubusercontent.com/jandix/intro-dc-with-r/master/Data/Session_6/countries.json](https://raw.githubusercontent.com/jandix/intro-dc-with-r/master/Data/Session_6/countries.json).
+
+```{r, echo=FALSE}
+cars
+```
 
 # Was sind APIs?
 
@@ -93,11 +191,11 @@ url
 
 ## Aufgaben
 
-Unter [https://developers.google.com/maps/documentation/geocoding/intro](https://developers.google.com/maps/documentation/geocoding/intro) findest du die Dokumentation der Google Maps Geocoding API. Du kannst die Aufgaben entweder mit Hilfe des Browsers oder mit R lösen. **Tipp:** Im `httr` package gibt es die Funktion `GET()`. 
+Unter [https://developers.google.com/maps/documentation/geocoding/intro](https://developers.google.com/maps/documentation/geocoding/intro) findest du die Dokumentation der Google Maps Geocoding API. Du kannst die Aufgaben entweder mit Hilfe des Browsers oder mit R lösen. **Tipp:** Im `httr` package gibt es die Funktionen `GET()` und `content()` mit deren Hilfe man Webseiten laden kann. 
 
 1. Welche Koordinaten hat die Unversität Konstanz?
 2. Zu welchem `administrative_area_level_2` gehört die Universität Harvard? 
-3. Die API kann sowohl die Daten im `JSON` und `XML` Format ausgeben. Wie kann man das Format ändern?
+3. Die API kann sowohl die Daten im `JSON` und `XML` Format ausgeben. Wie kann man das Format ändern? Welches Format ist besser?
 
 # APIs in R
 
@@ -124,6 +222,10 @@ revgeocode(location = as.numeric(coord[1,]),
 
 ## ggmap (2)
 
+## Aufgaben
+
+1. Nutze die Koordinaten aus dem `gtdb` Datensatz, um den Datensatz mit Stadt, Bundesland/State und Land zu erweitern. Nutze dazu das `ggmap`-Package. 
+
 ## rtimes (1)
 
 - Key beantragen: [https://developer.nytimes.com/signup](https://developer.nytimes.com/signup)
@@ -143,8 +245,12 @@ as_search("")
 
 ```
 
-## rtweet
+## Hausaufgaben
 
-```{r}
-library(rtweet)
-```
+1. Erstelle ein Sample basierend auf einem Land (z.B.: Swasiland) und einem Zeitraum (max. 1 Jahr). 
+2. Überlege dir eine Strategie, um für jedes Ereignis in deinem Sample, Zeitungsartikel in der New York Times API zu finden. Kombiniere dazu geschickt **Zeit**, **attack_type** und Ort.
+3. Speicher alle Metadaten zu den Zeitungsartikeln in einem neuen `data.frame` mit dem Namen `nyt_articles`.
+
+
+
+
