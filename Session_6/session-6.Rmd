@@ -13,6 +13,7 @@ output:
 
 ```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
 knitr::opts_chunk$set(echo = TRUE)
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # load required packages
 library(tidyverse)
@@ -36,15 +37,16 @@ Session 4 - Einfache Analyse (numerisch)
 
 Session 5 - Visualisierung
 
-`Session 6 - Application Programming Interfaces (APIs)`
+`Session 6 & 7 - Application Programming Interfaces (APIs)`
 
-Session 7 - Introduction to Text Mining
+Session 8 - Introduction to Web Scraping
 
-Session 8 & 9 - Web Scraping
+Session 9 - Intorduction to Text Mining
 
 
 ## Agenda
 
+1. Missing Values
 1. Datenformate
 2. Aufgaben
 3. Was sind in APIs?
@@ -55,6 +57,18 @@ Session 8 & 9 - Web Scraping
 8. Twitter API
 9. Hausaufgaben
 
+# Missing values
+
+## Missing values (1)
+
+```{r, eval=FALSE}
+# löschen aller Zeilen, die mindestens ein NA haben
+gtdb_complete <- na.omit(gtdb)
+```
+
+**<i class="fa fa-exclamation-triangle "></i> Obacht:**
+
+Bias Gefahr! Es ist möglich, dass Werte auf Grund einer Drittvariablen nicht beobachtet werden können. Normalerweise sollten fehlende Observationen genau untersucht und begründet werden.
 
 # Datenformate
 
@@ -88,18 +102,12 @@ json <- '[
 ]'
 parsed_json <- fromJSON(json)
 xml <- '<persons>
-  <person>
-    <name>Batman</name>
-    <age>99</age>
-  </person>
-  <person>
-    <name>Robin</name>
-    <age>101</age>
-  </person>
+  <person name="Batman" age="99"></person>
+  <person name="Robin" age="102"></person>
 </persons>'
 parsed_xml <- read_xml(xml)
-parsed_persons <- xml_find_all(parsed_xml, "//persons")
-parsed_text <- xml_text(parsed_persons)
+parsed_persons <- xml_find_all(parsed_xml, "//person")
+parsed_text <- xml_attr(parsed_persons, "name")
 ```
 
 ```{r, eval=FALSE}
@@ -116,14 +124,8 @@ parsed_json
 
 ```{xml}
 <persons>
-  <person>
-    <name>Batman</name>
-    <age>99</age>
-  </person>
-  <person>
-    <name>Robin</name>
-    <age>101</age>
-  </person>
+  <person name="Batman" age="99"></person>
+  <person name="Robin" age="102"></person>
 </persons>
 ```
 
@@ -134,8 +136,8 @@ parsed_json
 library(xml2)
 xml <- readLines("batman.xml")
 parsed_xml <- read_xml(xml)
-parsed_persons <- xml_find_all(parsed_xml, "//persons")
-parsed_text <- xml_text(parsed_persons)
+parsed_persons <- xml_find_all(parsed_xml, "//person")
+parsed_text <- xml_attr(parsed_persons, "name")
 ```
 ```{r, echo=FALSE}
 parsed_text
@@ -144,10 +146,10 @@ parsed_text
 ## Aufgaben
 
 ```{r, echo=FALSE}
-cars <- cars[1:5, ]
+cars <- cars[1:3, ]
 ```
 
-1. Erstelle eine JSON Datei von dem untenstehenden Datensatz.
+1. Erstelle händisch eine JSON Datei von dem untenstehenden Datensatz.
 2. Lese und parse die Datei [https://raw.githubusercontent.com/jandix/intro-dc-with-r/master/Data/Session_6/countries.json](https://raw.githubusercontent.com/jandix/intro-dc-with-r/master/Data/Session_6/countries.json).
 
 ```{r, echo=FALSE}
@@ -191,10 +193,10 @@ url
 
 ## Aufgaben
 
-Unter [https://developers.google.com/maps/documentation/geocoding/intro](https://developers.google.com/maps/documentation/geocoding/intro) findest du die Dokumentation der Google Maps Geocoding API. Du kannst die Aufgaben entweder mit Hilfe des Browsers oder mit R lösen. **Tipp:** Im `httr` package gibt es die Funktionen `GET()` und `content()` mit deren Hilfe man Webseiten laden kann. 
+Unter [https://developers.google.com/maps/documentation/geocoding/intro](https://developers.google.com/maps/documentation/geocoding/intro) findest du die Dokumentation der Google Maps Geocoding API. Du kannst die Aufgaben entweder mit Hilfe des Browsers oder mit R lösen.
 
-1. Welche Koordinaten hat die Unversität Konstanz?
-2. Zu welchem `administrative_area_level_2` gehört die Universität Harvard? 
+1. Welche Koordinaten hat die Universität Konstanz?
+2. Zu welchem `County` gehört die Universität Harvard? 
 3. Die API kann sowohl die Daten im `JSON` und `XML` Format ausgeben. Wie kann man das Format ändern? Welches Format ist besser?
 
 # APIs in R
