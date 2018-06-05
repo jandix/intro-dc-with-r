@@ -1,0 +1,7 @@
+<persons>
+  <person name="Batman" age="32"></person>
+  <person name="Joker" age="33"></person>
+  <person name="Alicia Hunt" age="33"></person>
+  <person name="Alfred" age="101"></person>
+  <person name="Vicki Vale" age="24"></person>
+</persons>
