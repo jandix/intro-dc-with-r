@@ -1,7 +1,7 @@
-<persons>
-  <person name="Batman" age="32"></person>
-  <person name="Joker" age="33"></person>
-  <person name="Alicia Hunt" age="33"></person>
-  <person name="Alfred" age="101"></person>
-  <person name="Vicki Vale" age="24"></person>
-</persons>
+<heroes>
+  <hero name="Batman" age="32"></hero>
+  <hero name="Joker" age="33"></hero>
+  <hero name="Alicia Hunt" age="33"></hero>
+  <hero name="Alfred" age="101"></hero>
+  <hero name="Vicki Vale" age="24"></hero>
+</heros>
