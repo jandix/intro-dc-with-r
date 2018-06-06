@@ -85,12 +85,12 @@ sudo nano /etc/nginx/sites-available/rstudio
 
 ```
 server {
-	listen 80;
-    server_name api.studisync.de;
+    listen 80;
+    server_name rserver
     location / {
         proxy_set_header  X-Real-IP  $remote_addr;
         proxy_set_header  Host       $http_host;
-        proxy_pass        http://127.0.0.1:8020;
+        proxy_pass        http://127.0.0.1:8787;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
