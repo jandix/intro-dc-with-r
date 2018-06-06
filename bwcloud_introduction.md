@@ -4,11 +4,15 @@
 
 #### Wichtige Befehle
 
-`sudo` 
-
-`cd` (**change directory**)
+`cd <dir>` (**change directory**)
 
 `ls` (**list** all files in the current directory)
+
+`chmod 755 <dir|dir> ` (ändere Zugriffsrechte)
+
+`chown <username>:<groupname> <dir|file>` (ändere Besitzter)
+
+`nano` (öffne Texteditor Nano)
 
 #### Installation von zusätzlichen Paketen/Programmen
 
@@ -57,12 +61,46 @@ wget https://download2.rstudio.org/rstudio-server-1.1.453-amd64.deb
 sudo gdebi rstudio-server-1.1.453-amd64.deb
 ```
 
+### Einrichten eines Proxy Server (Nginx)
 
-
-### Einrichten eines Proxy Server (NGINX)
-
-Installiere den Web-/Proxyserver Nginx.
+#### Installation Nginx.
 
 ```{bash}
 sudo apt-get install nginx -y
+```
+
+#### Lösche **default** Konfiguration
+
+```{bash}
+sudo rm /etc/nginx/sites-enabled/default
+```
+
+#### Erstelle neue Konfiguration
+
+```{bash}
+sudo nano /etc/nginx/sites-available/rstudio
+```
+
+##### Konfiguration zum einfügen
+
+```
+server {
+	listen 80;
+    server_name api.studisync.de;
+    location / {
+        proxy_set_header  X-Real-IP  $remote_addr;
+        proxy_set_header  Host       $http_host;
+        proxy_pass        http://127.0.0.1:8020;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+#### Verlinke die neue Konfiguration und starte Nginx neu
+```{bash}
+sudo ln -s /etc/nginx/sites-available/rstudio /etc/nginx/sites-enabled/rstudio
+sudo service nginx restart
 ```
