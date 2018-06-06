@@ -5,18 +5,40 @@
 #### Wichtige Befehle
 
 `sudo` 
-`cd` (_change directory_)
-`ls` (_list_ all files in the current directory)
 
-#### Installation von zusätzlichen Paketen
+`cd` (**change directory**)
+
+`ls` (**list** all files in the current directory)
+
+#### Installation von zusätzlichen Paketen/Programmen
+
+```{bash}
+sudo apt-get install <paket>
+```
+
+#### Update der installierten Pakete und des Systems
+
+```{bash}
+sudo apt-get update && sudo apt-get upgrade -y
+```
 
 #### Anlegen eines neuen Users
 
+```{bash}
+sudo adduser <username>
+```
+
 #### Anlegen einer neuen Gruppe
+
+```{bash}
+sudo addgroup <groupname>
+```
 
 #### User zu einer Gruppe hinzufügen
 
-
+```{bash}
+sudo usermod -aG <groupname> <username>
+```
 
 ### Installation eines RStudio Servers
 
