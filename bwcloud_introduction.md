@@ -22,7 +22,7 @@
 ```{bash}
 sudo nano /etc/hosts
 ```
-Schreibe Folgendes in die zweite Zeile 
+##### Schreibe Folgendes in die zweite Zeile 
 
 ```
 127.0.0.1 <name_of_your_instance>'
@@ -95,7 +95,7 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo nano /etc/nginx/sites-available/rstudio
 ```
 
-##### Konfiguration zum einfügen
+##### Konfiguration zum Einfügen
 
 ```
 server {
@@ -117,4 +117,28 @@ server {
 ```{bash}
 sudo ln -s /etc/nginx/sites-available/rstudio /etc/nginx/sites-enabled/rstudio
 sudo service nginx restart
+```
+
+### Zugriffsrechte
+
+#### Erstellen einer R-Server Gruppe 
+
+```
+sudo addgroup rserver
+```
+#### Erstellen eines Users für diese Gruppe 
+```
+sudo adduser jane 
+sudo usermod -aG rserver jane
+```
+
+#### Zugriff nur für rserver Gruppe 
+
+```
+sudo nano /etc/rstudio/rserver.conf
+```
+##### Schreibe Folgendes in das File
+
+```
+auth-required-user-group=rserver
 ```
