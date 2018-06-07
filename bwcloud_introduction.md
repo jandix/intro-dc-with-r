@@ -16,6 +16,15 @@
 
 `sudo` (führe Befehle als "super-user" aus)
 
+`Ctrl/Strg + L` Leeren der Console
+
+`Ctrl/Strg + C` Abbrechen des Befehls 
+
+`↑` Anzeigen des letzten Befehls
+
+`RECHTSKLICK` Einfügen 
+
+
 
 #### Einstellen des Servernamen 
 
@@ -25,7 +34,7 @@ sudo nano /etc/hosts
 ##### Schreibe Folgendes in die zweite Zeile 
 
 ```
-127.0.0.1 <name_of_your_instance>'
+127.0.0.1 <name_of_your_instance>
 ```
 
 #### Installation von zusätzlichen Paketen/Programmen
