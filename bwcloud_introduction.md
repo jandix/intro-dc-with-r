@@ -33,7 +33,7 @@
 
 `ls` (**list** all files in the current directory)
 
-`chmod 755 <dir|dir> ` (ändere Zugriffsrechte)
+`chmod 755 <dir|file> ` (ändere Zugriffsrechte)
 
 `chown <username>:<groupname> <dir|file>` (ändere Besitzter)
 
@@ -49,8 +49,37 @@
 
 `RECHTSKLICK` Einfügen 
 
+##### Installation von zusätzlichen Paketen/Programmen
 
+```{bash}
+sudo apt-get install <paket>
+```
 
+##### Anlegen eines neuen Users
+
+```{bash}
+sudo adduser <username>
+```
+
+##### Anlegen einer neuen Gruppe
+
+```{bash}
+sudo addgroup <groupname>
+```
+
+##### User zu einer Gruppe hinzufügen
+
+```{bash}
+sudo usermod -aG <groupname> <username>
+```
+
+### Vorbereiten des Servers
+
+#### Update der installierten Pakete und des Systems
+
+```{bash}
+sudo apt-get update && sudo apt-get upgrade -y
+```
 #### Einstellen des Servernamen 
 
 ```{bash}
@@ -60,36 +89,6 @@ sudo nano /etc/hosts
 
 ```
 127.0.0.1 <name_of_your_instance>
-```
-
-#### Installation von zusätzlichen Paketen/Programmen
-
-```{bash}
-sudo apt-get install <paket>
-```
-
-#### Update der installierten Pakete und des Systems
-
-```{bash}
-sudo apt-get update && sudo apt-get upgrade -y
-```
-
-#### Anlegen eines neuen Users
-
-```{bash}
-sudo adduser <username>
-```
-
-#### Anlegen einer neuen Gruppe
-
-```{bash}
-sudo addgroup <groupname>
-```
-
-#### User zu einer Gruppe hinzufügen
-
-```{bash}
-sudo usermod -aG <groupname> <username>
 ```
 
 ### Installation eines RStudio Servers
