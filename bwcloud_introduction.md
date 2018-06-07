@@ -1,5 +1,30 @@
 # Arbeiten in der Cloud
 
+## Instanz einrichten und vorbereiten
+
+### Putty download und SSH Key erstellen
+1. Download Putty [https://putty.org/](https://putty.org/)
+2. Generate SSH Key
+3. Save Keys
+4. Add Key in BWCloud
+
+### Instanz erstellen
+1. Ubuntu 16.04 Raw
+2. Key auswählen
+3. Sicherheitsgruppe `default`
+4. Netzwerk `public2`
+
+### Sicherheitsgruppe hinzufügen
+1. HTTP Gruppe mit Port 80 & 443 erstellen
+2. Sicherheitsgruppe zu Instanz hinzufügen
+
+### Putty einrichten
+1. Host Name eintragen
+2. Namen geben und speichern
+3. Key unter _SSH_ → _Auth_ → _Private key file for authentication_ auswählen und erneut speichern 
+4. Dialog bestätigen
+
+
 ### Erste Schritte mit Ubuntu 16.04
 
 #### Wichtige Befehle
