@@ -17,7 +17,6 @@
 `sudo` (führe Befehle als "super-user" aus)
 
 
-
 #### Einstellen des Servernamen 
 
 ```{bash}
@@ -25,8 +24,9 @@ sudo nano /etc/hosts
 ```
 Schreibe Folgendes in die zweite Zeile 
 
-'127.0.0.1 <name_of_your_instance>'
-
+```
+127.0.0.1 <name_of_your_instance>'
+```
 
 #### Installation von zusätzlichen Paketen/Programmen
 
