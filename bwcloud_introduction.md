@@ -177,3 +177,11 @@ sudo nano /etc/rstudio/rserver.conf
 auth-required-user-group=rserver
 ```
 ## Los geht's 
+
+- Logge dich mit deinen Account-Daten ein
+- führe eine Line Code aus 
+- Installiere ein Package (z.B. jsonlite/ xml2)
+- clone über die Console das Repository 
+
+
+
