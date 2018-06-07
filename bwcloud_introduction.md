@@ -4,9 +4,9 @@
 
 ### Putty download und SSH Key erstellen
 1. Download Putty [https://putty.org/](https://putty.org/)
-2. Generate SSH Key
-3. Save Keys
-4. Add Key in BWCloud
+2. Generiere einen SSH Key
+3. Speicher Keys
+4. Einfügen in BWCloud
 
 ### Instanz erstellen
 1. Ubuntu 16.04 Raw
