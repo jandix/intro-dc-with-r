@@ -30,7 +30,7 @@ osm_geocoding <- function (q,
   url <- httr::build_url(url)
   
   # request query
-  response <- httr::GET(url)
+  response <- httr::GET(url, add_headers("user-agent" = "Data-Collection with R "))
   
   # check if successful
   if (httr::http_type(response) != "application/json") {
@@ -92,7 +92,7 @@ osm_reverse_geocoding <- function (lat,
   url <- httr::build_url(url)
   
   # request query
-  response <- httr::GET(url)
+  response <- httr::GET(url, add_headers("user-agent" = "Data-Collection with R"))
   
   # check if successful
   if (httr::http_type(response) != "application/json") {
