@@ -1,5 +1,5 @@
 ---
-title: "Session 6 - APIs"
+title: "Session 6 - APIs (1)"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
 date: "05. Juni 2018"
@@ -219,75 +219,6 @@ Erstelle ein Sample mit allen vollständigen Observationen aus dem Jahr **2012**
 
 1. Erstelle eine leere Spalte `country` in dem neuen Datensatz.
 2. Ermittle den **country_code** für jede Observation mit Hilfe von `osm_reverse_geocoding()`. **Obacht:** Diese Funktion ist nicht vektorisiert. Die Ausführung kann sehr, sehr lange dauern.
-
-
-## rtimes (1)
-
-- Key beantragen: [https://developer.nytimes.com/signup](https://developer.nytimes.com/signup)
-
-```{r, message=F, eval=F}
-# Paket laden
-library(rtimes)
-# Artikel suchen mit dem Stichwort Merkel
-article <- as_search("Merkel", 
-                     begin_date = "20150101",
-                     end_date = "20151231",
-                     key = "***")
-article$data
-```
-
-
-```{r, echo=FALSE, cache=TRUE}
-articles <- as_search("Merkel", 
-                      begin_date = "20150101",
-                      end_date = "20151231")
-articles$data[1:3, c("headline.main", "new_desk", "word_count")]
-```
-
-## rtweet (1)
-
-- App erstellen und Key erhalten: [https://apps.twitter.com/](https://apps.twitter.com/)
-- Dokumentation und Beispiele: [http://rtweet.info/](http://rtweet.info/)
-
-```{r, message=F, eval=F}
-# Paket laden
-library(rtweet)
-# namen deiner App 
-app_name <- "app_name"
-# api key 
-key <- "***"
-# api secret
-secret <- "***"
-# erstelle den token
-twitter_token <- create_token(app = appname,
-                              consumer_key = key,
-                              consumer_secret = secret)
-
-```
-
-## rtweet (2)
-
-```{r, eval=FALSE}
-tweets <- search_tweets("@realdonaldtrump", 
-                        n = 2000,
-                        token = twitter_token)
-tweets
-```
-
-```{r, echo=FALSE, cache=TRUE, message=FALSE, error=FALSE, warning=FALSE}
-tweets <- search_tweets("Trump", 
-                        n = 2000)
-tweets[1:3, c("screen_name", "text")]
-```
-
-
-
-## Aufgaben
-
-1. Erstelle ein Sample basierend auf einem Land (z.B.: Kolumbien).
-2. Überlege dir eine Strategie, um für jedes Ereignis in deinem Sample, Zeitungsartikel in der New York Times API zu finden. Kombiniere dazu geschickt **Zeit**, **attack_type** und Land.
-3. Speicher alle Metadaten zu den Zeitungsartikeln in einem neuen `data.frame` mit dem Namen `nyt_articles`. **Obacht:** Da du mehere Abfragen startest, solltest du die EventID in einer zusätzlichen Spalte speichern, um die Artikel dem Event zuordnen zu können.  
-
 
 
 
