@@ -75,3 +75,6 @@ for (i in 1:nrow(gtdb_country_sample)) {
   
   Sys.sleep(1)
 }
+
+# Datensatz speichern
+saveRDS(articles, "data/nyt_articles.rds")
