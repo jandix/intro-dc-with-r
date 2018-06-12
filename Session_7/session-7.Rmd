@@ -1,8 +1,8 @@
 ---
-title: "Session 7 - Einführung in Text Mining"
+title: "Session 7 - APIs (2)"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
-date: "8 May 2017"
+date: "12. Juni 2018"
 output: 
   ioslides_presentation:
     slide_level: 2
@@ -15,6 +15,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 # load required packages
+library(tidyverse)
+library(jsonlite)
+library(xml2)
+library(httr)
+library(ggmap)
+library(rtimes)
+library(rtweet)
 
 ```
 
@@ -30,40 +37,83 @@ Session 4 - Einfache Analyse (numerisch)
 
 Session 5 - Visualisierung
 
-Session 6 - Application Programming Interfaces (APIs)
+`Session 6 & 7 - Application Programming Interfaces (APIs)`
 
-`Session 7 - Introduction to Text Mining`
+Session 8 - Introduction to Web Scraping
 
-Session 8 & 9 - Web Scraping
-
+Session 9 - Intorduction to Text Mining
 
 ## Agenda
 
-1. Regular Expressions
-2. Text Mining
+1. Hausaufgaben besprechen
+2. rtweet
+3. rtimes
+3. Aufgaben
 
-# Regular Expression (RegEx)
+## rtweet (1)
 
-## Regular Expression Syntax
+- App erstellen und Key erhalten: [https://apps.twitter.com/](https://apps.twitter.com/)
+- Dokumentation und Beispiele: [http://rtweet.info/](http://rtweet.info/)
 
-- `$ * + . ? [ ] ^ { } | ( ) \` haben besondere Bedeutungen
-- `\n` newline
-- `\t` tab character
+```{r, message=F, eval=F}
+# Paket laden
+library(rtweet)
+# namen deiner App 
+app_name <- "app_name"
+# api key 
+key <- "***"
+# api secret
+secret <- "***"
+# erstelle den token
+twitter_token <- create_token(app = appname,
+                              consumer_key = key,
+                              consumer_secret = secret)
 
-## Wie funktioniert das?
+```
+
+## rtweet (2)
+
+```{r, eval=FALSE}
+tweets <- search_tweets("@realdonaldtrump", 
+                        n = 2000,
+                        token = twitter_token)
+tweets
+```
+
+```{r, echo=FALSE, cache=TRUE, message=FALSE, error=FALSE, warning=FALSE}
+tweets <- search_tweets("Trump", 
+                        n = 2000)
+tweets[1:3, c("screen_name", "text")]
+```
 
 
+## rtimes (1)
 
-## Hilfestellung 
+- Key beantragen: [https://developer.nytimes.com/signup](https://developer.nytimes.com/signup)
 
-- `?regex`
-- regexR
-- [Rstudio Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
-- [Stat 545](http://stat545.com/block022_regular-expression.html)
+```{r, message=F, eval=F}
+# Paket laden
+library(rtimes)
+# Artikel suchen mit dem Stichwort Merkel
+article <- as_search("Merkel", 
+                     begin_date = "20150101",
+                     end_date = "20151231",
+                     key = "***")
+article$data
+```
 
 
+```{r, echo=FALSE, cache=TRUE}
+articles <- as_search("Merkel", 
+                      begin_date = "20150101",
+                      end_date = "20151231")
+articles$data[1:3, c("headline.main", "new_desk", "word_count")]
+```
 
 
+## Aufgaben
 
-
+1. Erstelle ein Sample basierend auf einem Land (z.B.: Kolumbien).
+2. Überlege dir eine Strategie, um für jedes Ereignis in deinem Sample, Zeitungsartikel in der New York Times API zu finden. Kombiniere dazu geschickt **Zeit**, **attack_type** und Land.
+3. Speicher alle Metadaten zu den Zeitungsartikeln in einem neuen `data.frame` mit dem Namen `nyt_articles`. **Obacht:** Da du mehere Abfragen startest, solltest du die EventID in einer zusätzlichen Spalte speichern, um die Artikel dem Event zuordnen zu können.  
 
