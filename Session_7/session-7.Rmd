@@ -47,8 +47,11 @@ Session 9 - Intorduction to Text Mining
 
 1. Hausaufgaben besprechen
 2. rtweet
+3. Aufgaben
 3. rtimes
 3. Aufgaben
+
+# Hausaufgaben besprechen
 
 ## rtweet (1)
 
@@ -86,6 +89,10 @@ tweets <- search_tweets("Trump",
 tweets[1:3, c("screen_name", "text")]
 ```
 
+## Aufgaben
+
+1. Finde 2000 Tweets mit dem Hashtag `#TrumpKimSummit` und speicher diese in der Variablen `great_summit`.
+2. Lad dir die Timeline von **Jens Spahn** herrunter und speicher sie in der Variable `jens_spahn` (n = 2000). Erstelle eine sample ohne die retweets. Welches Endgerät nutzt Jens Spahn? Wieviele **likes** bekommt Jens Spahn durchschnittlich? Wieviele **retweets** bekommt Jens Spahn durchschnittlich?
 
 ## rtimes (1)
 
@@ -109,11 +116,3 @@ articles <- as_search("Merkel",
                       end_date = "20151231")
 articles$data[1:3, c("headline.main", "new_desk", "word_count")]
 ```
-
-
-## Aufgaben
-
-1. Erstelle ein Sample basierend auf einem Land (z.B.: Kolumbien).
-2. Überlege dir eine Strategie, um für jedes Ereignis in deinem Sample, Zeitungsartikel in der New York Times API zu finden. Kombiniere dazu geschickt **Zeit**, **attack_type** und Land.
-3. Speicher alle Metadaten zu den Zeitungsartikeln in einem neuen `data.frame` mit dem Namen `nyt_articles`. **Obacht:** Da du mehere Abfragen startest, solltest du die EventID in einer zusätzlichen Spalte speichern, um die Artikel dem Event zuordnen zu können.  
-
