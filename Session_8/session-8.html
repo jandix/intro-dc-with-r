@@ -138,9 +138,9 @@
 
 <ol>
 <li>HTML</li>
-<li>Tables</li>
-<li>Selector Gadget</li>
-<li>rvest</li>
+<li>Aufgaben</li>
+<li>HTML Tables</li>
+<li>Aufgaben</li>
 </ol>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Hausaufgaben besprechen</h2></hgroup><article  id="hausaufgaben-besprechen">
@@ -159,9 +159,7 @@
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h1&gt;Jianbing leggings craft beer&lt;/h1&gt;
-  &lt;p&gt;
-    Lorem ipsum dolor amet tattooed bitters bespoke.
-  &lt;/p&gt;
+  &lt;p&gt;Lorem ipsum dolor amet tattooed bitters bespoke.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
 
@@ -173,8 +171,8 @@
 <li><code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> heading (the number defines the size \(1 &gt; n + 1\))</li>
 <li><code>&lt;p&gt;</code> paragraph</li>
 <li><code>&lt;a&gt;</code> anchor (link)</li>
-<li><code>&lt;i&gt;</code> italic</li>
-<li><code>&lt;b&gt;</code> bold</li>
+<li><code>&lt;i&gt;</code> italic (kursiv)</li>
+<li><code>&lt;b&gt;</code> bold (fett)</li>
 </ul>
 
 <h3>Strukturen</h3>
@@ -194,13 +192,49 @@
 <li>Ändere den Titel der Website, um deine Seite zu beschreiben.</li>
 <li>Füge den Namen des/der PolitikerIn als <strong>fette</strong> Überschrift hinzu.</li>
 <li>Verlinke die Überschrift zur Wikipedia Seite des Politikers.</li>
-<li>Füge die Position und die Partei des/der PolitikerIn als kursive kleinere Überschrift hinzu.</li>
+<li>Füge die Position und die Partei des/der PolitikerIn als <em>kursive</em> kleinere Überschrift hinzu.</li>
 <li>Füge den ersten Absatz der Biographie aus Wikipedia hinzu.</li>
 <li>Füge ein Zitat mit des/der PolitikerIn mit <code>&lt;blockquote&gt;</code> hinzu.</li>
 <li>Füge ein Bild des/der PolitikerIn hinzu.</li>
 </ol>
 
-<h3>HTML Tables</h3></article></slide>
+</article></slide><slide class=""><hgroup><h2>HTML Tables (1)</h2></hgroup><article  id="html-tables-1">
+
+<pre class = 'prettyprint lang-html'>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Jill&lt;/td&gt;
+    &lt;td&gt;26&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Eve&lt;/td&gt;
+    &lt;td&gt;35&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+
+</article></slide><slide class=""><hgroup><h2>HTML Tables (2)</h2></hgroup><article  id="html-tables-2">
+
+<pre class = 'prettyprint lang-r'>library(htmltab)
+url &lt;- &quot;https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(19._Wahlperiode)&quot;
+mdbs &lt;- htmltab(url,
+                which = 3,
+                rm_nodata_cols = FALSE)
+mdbs[1:3, 2:6]</pre>
+
+<pre >##   Mitglieddes Bundestages Geburtsjahr Partei               Land Wahlkreis
+## 2    Michael von Abercron        1952    CDU Schleswig-Holstein Pinneberg
+## 3         Doris Achelwilm        1976  LINKE             Bremen      &lt;NA&gt;
+## 4     Grigorios Aggelidis        1965    FDP      Niedersachsen      &lt;NA&gt;</pre>
+
+</article></slide><slide class=""><hgroup><h2>Aufgaben</h2></hgroup><article  id="aufgaben-1">
+
+<ol>
+<li>Lade die Tabelle mit der Zusammensetzung des deutschen Bundestags herunter.</li>
+<li>Benutzte den Datensatz <code>gtdb_2012_cc.rds</code> aus der letzten Sitzung. Erstelle ein sample <code>afg_sample</code>, das nur die Beobachtungen in Afghanistan enthält. Lade detailierte Informationen über die Provinzen herunter <a href='https://en.wikipedia.org/wiki/Provinces_of_Afghanistan' title=''>https://en.wikipedia.org/wiki/Provinces_of_Afghanistan</a>. Ergänze das sample <code>afg_sample</code> mit <code>population</code>, <code>area</code> und <code>districts</code> aus der Wikipedia Tabelle. <strong>Obacht:</strong> Die Spalten <code>population</code> und <code>area</code> müssen noch in einen numerischen Datentyp umgewandelt werden. Nutzte dazu die Funktionen <code>gsub</code> und <code>as.numeric</code>.</li>
+</ol></article></slide>
 
 
   <slide class="backdrop"></slide>

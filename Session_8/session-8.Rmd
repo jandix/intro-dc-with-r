@@ -40,9 +40,9 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 ## Agenda
 
 1. HTML
-2. Tables
-3. Selector Gadget
-4. rvest
+2. Aufgaben
+2. HTML Tables
+4. Aufgaben
 
 # Hausaufgaben besprechen
 
@@ -61,9 +61,7 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 </head>
 <body>
   <h1>Jianbing leggings craft beer</h1>
-  <p>
-    Lorem ipsum dolor amet tattooed bitters bespoke.
-  </p>
+  <p>Lorem ipsum dolor amet tattooed bitters bespoke.</p>
 </body>
 </html>
 ```
@@ -75,8 +73,8 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 - `<h1>` - `<h6>` heading (the number defines the size $1 > n + 1$)
 - `<p>` paragraph 
 - `<a>` anchor (link)
-- `<i>` italic 
-- `<b>` bold 
+- `<i>` italic (kursiv)
+- `<b>` bold (fett)
 
 ### Strukturen
 
@@ -93,10 +91,43 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 2. Ändere den Titel der Website, um deine Seite zu beschreiben.
 2. Füge den Namen des/der PolitikerIn als **fette** Überschrift hinzu.
 3. Verlinke die Überschrift zur Wikipedia Seite des Politikers.
-3. Füge die Position und die Partei des/der PolitikerIn als kursive kleinere Überschrift hinzu. 
+3. Füge die Position und die Partei des/der PolitikerIn als _kursive_ kleinere Überschrift hinzu. 
 3. Füge den ersten Absatz der Biographie aus Wikipedia hinzu.
 4. Füge ein Zitat mit des/der PolitikerIn mit `<blockquote>` hinzu.
 3. Füge ein Bild des/der PolitikerIn hinzu.
 
 
-## HTML Tables
+## HTML Tables (1)
+
+```{html}
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>35</td>
+  </tr>
+</table>
+```
+
+## HTML Tables (2)
+
+```{r}
+library(htmltab)
+url <- "https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(19._Wahlperiode)"
+mdbs <- htmltab(url,
+                which = 3,
+                rm_nodata_cols = FALSE)
+mdbs[1:3, 2:6]
+```
+
+## Aufgaben
+
+1. Lade die Tabelle mit der Zusammensetzung des deutschen Bundestags herunter.
+2. Benutzte den Datensatz `gtdb_2012_cc.rds` aus der letzten Sitzung. Erstelle ein sample `afg_sample`, das nur die Beobachtungen in Afghanistan enthält. Lade detailierte Informationen über die Provinzen herunter [https://en.wikipedia.org/wiki/Provinces_of_Afghanistan](https://en.wikipedia.org/wiki/Provinces_of_Afghanistan). Ergänze das sample `afg_sample` mit `population`, `area` und `districts` aus der Wikipedia Tabelle. **Obacht:** Die Spalten `population` und `area` müssen noch in einen numerischen Datentyp umgewandelt werden. Nutzte dazu die Funktionen `gsub` und `as.numeric`.
