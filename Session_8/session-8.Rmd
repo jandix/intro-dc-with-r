@@ -1,0 +1,102 @@
+---
+title: "Session 8 - Web Scraping (1)"
+subtitle: "An Introduction to Data Collection with R"
+author: "Philipp Behrendt & Jan Dix"
+date: "19. Juni 2018"
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    logo: ../Assets/img/logo-uni.png
+    widescreen: true
+    css: ../Assets/css/style.css
+---
+
+```{r setup, include=FALSE, echo=F, error=F, warning=F, message=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load required packages
+library(tidyverse)
+library(httr)
+library(rvest)
+```
+
+## Syllabus
+
+Session 1 - R and RStudio
+
+Session 2 - Data Typen und erste Befehle
+
+Session 3 - Daten einlesen und speichern
+
+Session 4 - Einfache Analyse (numerisch)
+
+Session 5 - Visualisierung
+
+Session 6 & 7 - Application Programming Interfaces (APIs)
+
+`Session 8 & 9 - Introduction to Web Scraping`
+
+
+## Agenda
+
+1. HTML
+2. Tables
+3. Selector Gadget
+4. rvest
+
+# Hausaufgaben besprechen
+
+## HTML (1)
+
+**Hypertext Markup Language (HTML)** is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. (Wikipedia, 2018)
+
+## HTML (2)
+
+```{html}
+<!DOCTYPE HTML>
+<html lang = "de">
+<head>
+  <title>Hallo Welt</title>
+  <meta charset = "UTF-8" />
+</head>
+<body>
+  <h1>Jianbing leggings craft beer</h1>
+  <p>
+    Lorem ipsum dolor amet tattooed bitters bespoke.
+  </p>
+</body>
+</html>
+```
+
+## HTML (3) {.columns-2}
+
+### Text
+
+- `<h1>` - `<h6>` heading (the number defines the size $1 > n + 1$)
+- `<p>` paragraph 
+- `<a>` anchor (link)
+- `<i>` italic 
+- `<b>` bold 
+
+### Strukturen
+
+- `<ul>` unordered list
+- `<ol>` ordered list
+- `<li>` list item
+- `<img>` image
+- `<div>` division
+
+
+## Aufgaben
+
+1. Erstelle eine Fan Seite für eine(n) PolitikerIn. Nutzte dazu das Gerüst aus den Folien.
+2. Ändere den Titel der Website, um deine Seite zu beschreiben.
+2. Füge den Namen des/der PolitikerIn als **fette** Überschrift hinzu.
+3. Verlinke die Überschrift zur Wikipedia Seite des Politikers.
+3. Füge die Position und die Partei des/der PolitikerIn als kursive kleinere Überschrift hinzu. 
+3. Füge den ersten Absatz der Biographie aus Wikipedia hinzu.
+4. Füge ein Zitat mit des/der PolitikerIn mit `<blockquote>` hinzu.
+3. Füge ein Bild des/der PolitikerIn hinzu.
+
+
+## HTML Tables
