@@ -1,6 +1,38 @@
 ### Musterlösung Session 7
 ### Philipp Behrendt & Jan Dix
 
+# RTWEET
+library(rtweet)
+token <- get_token()
+
+# 1) Finde 2000 Tweets mit dem Hashtag #TrumpKimSummit und speicher diese in der Variablen great_summit.
+
+great_summit <- search_tweets(q = "#TrumpKimSummit",
+                              n = 2000,
+                              token = token)
+
+# 2) Lad dir die Timeline von Jens Spahn herrunter und speicher sie in der Variable jens_spahn (n = 2000). Erstelle eine sample ohne die retweets. Welches Endgerät nutzt Jens Spahn? Wieviele likes bekommt Jens Spahn durchschnittlich? Wieviele retweets bekommt Jens Spahn durchschnittlich?
+
+# Lade tweets von Jens Spahn
+jens_spahn <- get_timeline("jensspahn",
+                           n = 2000,
+                           token = token)
+
+# ohne retweets
+jens_spahn_ort <- jens_spahn[!jens_spahn$is_retweet, ]
+
+# endgerät
+table(jens_spahn_ort$source)
+
+# mean likes
+mean(jens_spahn_ort$favorite_count)
+
+# mean retweets
+mean(jens_spahn_ort$retweet_count)
+
+
+# RTIMES
+
 # Pakete laden und installieren
 if (!require(lubridate)) install.packages("lubridate")
 library(lubridate)
@@ -13,7 +45,7 @@ gtdb <- readRDS("data/gtdb_2012_cc.rds")
 #########################################################################
 # TODO: Erstelle ein Sample basierend auf einem Land (z.B.: Kolumbien).
 #########################################################################
-gtdb_country_sample <- 
+gtdb_country_sample <- gtdb[gtdb$country_code == "us", ]
   
 # date erstellen
 gtdb_country_sample$date <- make_date(year = gtdb_country_sample$iyear,
@@ -35,14 +67,14 @@ for (i in 1:nrow(gtdb_country_sample)) {
   #########################################################################
   # TODO: Query definieren. (Tipp: paste())
   #########################################################################
-  query <- 
+  query <- gtdb_country_sample$gname[i]
   
   if (!is.na(gtdb_country_sample$province[i])) {
-    query <- 
+    query <- paste(gtdb_country_sample$gname[i], gtdb_country_sample$province[i])
   }
   
   if (!is.na(gtdb_country_sample$city[i])) {
-    query <- 
+    query <- paste(gtdb_country_sample$gname[i], gtdb_country_sample$city[i])
   }
   
   # get articles
