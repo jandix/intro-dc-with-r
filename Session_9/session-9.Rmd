@@ -1,5 +1,5 @@
 ---
-title: "Session 8 - Web Scraping (1)"
+title: "Session 9 - Web Scraping (2)"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
 date: "19. Juni 2018"
@@ -39,95 +39,62 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 
 ## Agenda
 
-1. HTML
+1. Platzhalter - Tool Erklären 
 2. Aufgaben
-2. HTML Tables
-4. Aufgaben
+3. Recap - Was wir jetzt können?
+4. Danke ! 
+
 
 # Hausaufgaben besprechen
 
-## HTML (1)
-
-**Hypertext Markup Language (HTML)** is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. (Wikipedia, 2018)
-
-## HTML (2)
-
-```{html}
-<!DOCTYPE HTML>
-<html lang = "de">
-<head>
-  <title>Hallo Welt</title>
-  <meta charset = "UTF-8" />
-</head>
-<body>
-  <h1>Jianbing leggings craft beer</h1>
-  <p>Lorem ipsum dolor amet tattooed bitters bespoke.</p>
-</body>
-</html>
-```
-
-## HTML (3) {.columns-2}
-
-### Text
-
-- `<h1>` - `<h6>` heading (the number defines the size $1 > n + 1$)
-- `<p>` paragraph 
-- `<a>` anchor (link)
-- `<i>` italic (kursiv)
-- `<b>` bold (fett)
-
-### Strukturen
-
-- `<ul>` unordered list
-- `<ol>` ordered list
-- `<li>` list item
-- `<img>` image
-- `<div>` division
-
 
 ## Aufgaben
 
-1. Erstelle eine Fan Seite für eine(n) PolitikerIn. Nutzte dazu das Gerüst aus den Folien.
-2. Ändere den Titel der Website, um deine Seite zu beschreiben.
-2. Füge den Namen des/der PolitikerIn als **fette** Überschrift hinzu.
-3. Verlinke die Überschrift zur Wikipedia Seite des Politikers.
-3. Füge die Position und die Partei des/der PolitikerIn als _kursive_ kleinere Überschrift hinzu. 
-3. Füge den ersten Absatz der Biographie aus Wikipedia hinzu.
-4. Füge ein Zitat mit des/der PolitikerIn mit `<blockquote>` hinzu.
-3. Füge ein Bild des/der PolitikerIn hinzu.
+1. Lade den Datensatz `nyt_articles.rds`, in dem wir mittels der NYT API Metadaten zu Artikeln, die mit den Anschlägen in Verbindung steheen könnten, herunter geladen haben. 
+2. Scrape nun (vielleicht hier nochmal ein Subset wcount > 2000 ?) mittels ... den vollen Text der Artikel 
 
 
-## HTML Tables (1)
+# Recap 
 
-```{html}
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>26</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>35</td>
-  </tr>
-</table>
+## Road Map
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("../Assets/img/presentation/roadmap.png")
 ```
 
-## HTML Tables (2)
 
-```{r}
-library(htmltab)
-url <- "https://de.wikipedia.org/wiki/Liste_der_Mitglieder_des_Deutschen_Bundestages_(19._Wahlperiode)"
-mdbs <- htmltab(url,
-                which = 3,
-                rm_nodata_cols = FALSE)
-mdbs[1:3, 2:6]
+## Was Ihr könnt - Basics (1): 
+
+- Basaler Umgang mit GIT 
+- CSV/EXCEL/JSON ... einlesen 
+- Daten speichern 
+- Einfache Konzepte der Programmierung (Ifelse, Loop)
+- Numerische Analyse mit R 
+- Basic Plots mit R
+
+## Was Ihr könnt  Fancy Zeug (2) ... 
+- Interaktion mit unterschiedlichsten API's 
+- Nie wieder Daten von Hand kopieren (HMTAB)
+- Websiten scrapen 
+- Die nötige Neugier auf mehr ? 
+
+
+
+## Weiterführende Ideen - Was ist möglich (1) ? 
+
+```{r, out.width = "100%",echo=FALSE}
+knitr::include_graphics("fancy_attacks_per_year.gif")
 ```
 
-## Aufgaben
+## Weiterführende Ideen - Was ist möglich (2)? 
 
-1. Lade die Tabelle mit der Zusammensetzung des deutschen Bundestags herunter.
-2. Benutzte den Datensatz `gtdb_2012_cc.rds` aus der letzten Sitzung. Erstelle ein sample `afg_sample`, das nur die Beobachtungen in Afghanistan enthält. Lade detailierte Informationen über die Provinzen herunter [https://en.wikipedia.org/wiki/Provinces_of_Afghanistan](https://en.wikipedia.org/wiki/Provinces_of_Afghanistan). Ergänze das sample `afg_sample` mit `population`, `area` und `districts` aus der Wikipedia Tabelle. **Obacht:** Die Spalten `population` und `area` müssen noch in einen numerischen Datentyp umgewandelt werden. Nutzte dazu die Funktionen `gsub` und `as.numeric`.
+Hast du hier noch was fancys Jan ? 
+
+
+## Weiterführende Links 
+
+- Tutorial: [R For DataScience](http://r4ds.had.co.nz/index.html)
+- Tutorial: [Text Mining with R](https://www.tidytextmining.com/index.html)
+
+
+
