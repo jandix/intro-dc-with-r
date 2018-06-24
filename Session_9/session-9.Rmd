@@ -239,6 +239,10 @@ forceNetwork(Links = links,
              height = 400)
 ```
 
+## Vielen Dank!
+
+Vielen Dank für Eure regelmäßige Teilnahme. Wir würden uns freuen, wenn ihr alle die Umfrage ausfühlt, die wir Euch via Twitter zukommen lassen.
+
 ## Weiterführende Links {.columns-2}
 
 ### Programmieren üben
