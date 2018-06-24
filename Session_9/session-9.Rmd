@@ -2,7 +2,7 @@
 title: "Session 9 - Web Scraping (2)"
 subtitle: "An Introduction to Data Collection with R"
 author: "Philipp Behrendt & Jan Dix"
-date: "19. Juni 2018"
+date: "26. Juni 2018"
 output: 
   ioslides_presentation:
     slide_level: 2
@@ -39,7 +39,9 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 
 ## Agenda
 
-1. Platzhalter - Tool Erklären 
+1. HTML, Klassen und IDs
+1. Scraping mit rvest
+2. Selector Gadget
 2. Aufgaben
 3. Recap - Was wir jetzt können?
 4. Danke ! 
@@ -47,12 +49,78 @@ Session 6 & 7 - Application Programming Interfaces (APIs)
 
 # Hausaufgaben besprechen
 
+## HTML, Klassen und IDs
+
+```{html}
+<h2 class="city" id="favoriteCity">London</h2>
+<p class="description">London is the capital of England.</p>
+<h2 class="city">Paris</h2>
+<p class="description">Paris is the capital of France.</p>
+```
+
+## Scraping mit rvest (1)
+
+```{r, echo=FALSE}
+cities <- '<h2 class="city" id="favoriteCity">London</h2><p class="description">London is the capital of England.</p><h2 class="city">Paris</h2><p class="description">Paris is the capital of France.</p>'
+```
+
+```{r}
+# Paket laden
+library(rvest)
+# HTML einlesen (kann auch eine URL sein)
+cities <- read_html(cities)
+# Namen parsen
+city_names <- html_nodes(cities, ".city")
+city_names <- html_text(city_names)
+# Beschreibung parsen
+city_description <- html_nodes(cities, ".description")
+city_description <- html_text(city_description)
+```
+
+```{r, echo=FALSE}
+data.frame(
+  name = city_names,
+  description = city_description,
+  stringsAsFactors = F
+)
+```
+
+## Scraping mit rvest (2)
+
+```{r}
+# Lieblingsstadt parsen
+favorite_city <- html_nodes(cities, "#favoriteCity")
+favorite_city <- html_text(favorite_city)
+```
+
+```{r, echo=FALSE}
+favorite_city
+```
+
+## Selector Gadget
+
+SelectorGadget is an open source tool that makes CSS selector generation and discovery on complicated sites a breeze. (Selector Gadget, 2018)
+
+[https://selectorgadget.com/](https://selectorgadget.com/)
+
+## Scraping mit rvest (3)
+```{r}
+# HTML herunterladen
+lego_movie <- read_html("http://www.imdb.com/title/tt1490017/")
+# Cast parsen
+cast <- html_nodes(lego_movie, "#titleCast .itemprop span")
+cast <- html_text(cast)
+```
+
+```{r, echo=FALSE}
+cast
+```
 
 ## Aufgaben
 
-1. Lade den Datensatz `nyt_articles.rds`, in dem wir mittels der NYT API Metadaten zu Artikeln, die mit den Anschlägen in Verbindung steheen könnten, herunter geladen haben. 
-2. Scrape nun (vielleicht hier nochmal ein Subset wcount > 2000 ?) mittels ... den vollen Text der Artikel 
-
+1. Lade den Datensatz `nyt_articles.rds`. Diesen haben wir mit Hilfe der NYT API heruntergeladen und enthält mögliche Zeitungsartikel zu Anschlägen. 
+2. Lade die Artikel nun herunter. Scrape die Artikeltexte und speicher alle Artikel in einem Vektor `articles`. (Tipp: `c()`)
+3. Lade die Funktion `nyt_wordcloud()` aus dem Script `nyt_wordcloud.R` (`source()`). Nutzte die Funktion, um eine Wordcloud zu erstellen.
 
 # Recap 
 
@@ -63,22 +131,19 @@ knitr::include_graphics("../Assets/img/presentation/roadmap.png")
 ```
 
 
-## Was Ihr könnt - Basics (1): 
+## Was könnt ihr jetzt? - Basics (1): 
 
 - Basaler Umgang mit GIT 
-- CSV/EXCEL/JSON ... einlesen 
+- CSV/EXCEL/JSON einlesen 
 - Daten speichern 
 - Einfache Konzepte der Programmierung (Ifelse, Loop)
-- Numerische Analyse mit R 
-- Basic Plots mit R
+- Einfache Deskriptive Analyse mit R 
+- Einfache Plots mit R
 
-## Was Ihr könnt  Fancy Zeug (2) ... 
+## Was könnt ihr jetzt? - Fancy S*** (2) 
 - Interaktion mit unterschiedlichsten API's 
-- Nie wieder Daten von Hand kopieren (HMTAB)
-- Websiten scrapen 
-- Die nötige Neugier auf mehr ? 
-
-
+- Nie wieder Daten von Hand kopieren (htmltab)
+- Webseiten scrapen 
 
 ## Weiterführende Ideen - Was ist möglich (1) ? 
 
@@ -88,13 +153,104 @@ knitr::include_graphics("fancy_attacks_per_year.gif")
 
 ## Weiterführende Ideen - Was ist möglich (2)? 
 
-Hast du hier noch was fancys Jan ? 
+```{r, echo=FALSE, cache=TRUE, message=FALSE, warning=FALSE, error=FALSE}
+# Load package
+library(networkD3)
+library(rzeit2)
+library(htmltab)
+library(stringr)
 
+# get goverment
+url <- "https://de.wikipedia.org/wiki/Bundesregierung_%28Deutschland%29"
+gov <- htmltab(url)
 
-## Weiterführende Links 
+nodes <- gov[ , 3:4]
+names(nodes) <- c("name", "party")
+nodes$id <- 0:15
+nodes$mentions <- NA
 
-- Tutorial: [R For DataScience](http://r4ds.had.co.nz/index.html)
-- Tutorial: [Text Mining with R](https://www.tidytextmining.com/index.html)
+# extract last name only
+nodes$name <- str_extract(nodes$name, "([:alpha:])+$")
 
+# get number of articles for each minister
+for (i in 1:nrow(nodes)) {
+  query <- paste(nodes$name[i], nodes$party[i])
+  count <- rzeit2::get_content(query, 
+                               limit = 1,
+                               begin_date = "20180315",
+                               end_date = "20180624")
+  nodes$mentions[i] <- count$meta$found
+  Sys.sleep(0.5)
+}
+
+source <- NULL
+target <- NULL
+source_name <- NULL
+target_name <- NULL
+
+for (i in 1:(nrow(nodes) - 1)) {
+  for (j in (i + 1):nrow(nodes)) {
+    source <- c(source, nodes$id[i])
+    target <- c(target, nodes$id[j])
+    source_name <- c(source_name, nodes$name[i])
+    target_name <- c(target_name, nodes$name[j])
+  }
+}
+
+# define links
+links <- data.frame(source = source,
+                    target = target,
+                    source_name = source_name,
+                    target_name = target_name,
+                    mentions = NA,
+                    stringsAsFactors = F)
+
+# get n articles
+for (i in 1:nrow(links)) {
+  query <- paste(links$source[i], links$target[i], sep = " AND ")
+  count <- rzeit2::get_content(query, 
+                               limit = 1,
+                               begin_date = "20180315",
+                               end_date = "20180624")
+  links$mentions[i] <- count$meta$found
+  Sys.sleep(0.5)
+}
+
+# remove links with no mentions
+links <- links[links$mentions > 0, ]
+
+# plot network
+forceNetwork(Links = links,
+             Nodes = nodes,
+             Source = "source",
+             Target = "target",
+             Value = "mentions",
+             NodeID = "name",
+             Group = "party",
+             Nodesize = "mentions",
+             linkDistance = JS("function(d){return d.value * 50}"),
+             linkWidth = JS("function (d) { return d.value }"),
+             legend = TRUE,
+             colourScale = 
+             JS('d3.scaleOrdinal()
+                .domain(["SPD", "CSU","CDU"])
+                .range(["#e1001a", "#007dbd" , "#000"]);'),
+             width = 800,
+             height = 400)
+```
+
+## Weiterführende Links {.columns-2}
+
+### Programmieren üben
+- [DataCamp](https://www.datacamp.com/)
+- [Kaggle](https://www.kaggle.com/)
+- [R Bloggers](https://www.r-bloggers.com/)
+- [Codecademy](https://www.codecademy.com/)
+
+### Weiterführende Literatur
+- [R for Data Science](http://r4ds.had.co.nz/)
+- [Text Mining with R](https://www.tidytextmining.com/)
+- [R Packages](http://r-pkgs.had.co.nz/)
+- [Advanced R](http://adv-r.had.co.nz/)
 
 

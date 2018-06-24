@@ -1,0 +1,16 @@
+base
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+httr
+xml2
+rvest
+networkD3
+rzeit2
+htmltab
